@@ -1,5 +1,5 @@
-<script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"> </script>
+<script>
 
     var total_bonus = 0;
     var bonus_per_trial = .03;
@@ -1070,7 +1070,7 @@
         margin: 100px auto 0 auto;
     }
 
-    #startExperimentButton, #startPracticeButton {
+    #startExperimentButton, #startPracticeButton, #startPracticeButton2 {
         width: 150px;
         margin: 0 auto;
         text-align: center;
@@ -1139,7 +1139,7 @@
         margin: 10px auto;
     }
 
-    #explainSQs, #practiceTrialsPage {
+    #explainSQs, #practiceTrialsPage, #practiceTrialsPage2 {
         display: none;
     }
 
@@ -1297,6 +1297,40 @@
             <a href="#" id="startPractice">Start Practice</a>
         </p>
     </div>
+    </div>
+</div>
+
+<div id="practiceTrialsPage2" class="page">
+    <div class="cell">
+        <div id="practiceInstructions2">
+            <h3>More Practice Trials</h3>
+            <p>
+                Great! Hopefully you're starting to get the hang of this.
+            </p>
+            <p>
+                In the previous practice section, you were making judgements comparing the speech quilts drawn from the
+                the extremes of the spectrum (comparing clips made up of the longest possible segments to those made up
+                of the shortest possible segments).
+            </p>
+            <p>
+                This next practice section should be a little harder.
+                Here, you will compare examples created with segment lengths that are directly next to each other on
+                the spectrum of possible lengths.
+                For example, comparing an example created with 60ms segments vs one created from 120ms segments.
+            </p>
+            <p>
+                This section will be more representative of the actual experiment.
+            </p>
+            <p>
+                Let's go!
+            </p>
+        </div>
+
+        <div id="startPracticeButton2">
+            <p>
+                <a href="#" id="startPractice2">Start Practice</a>
+            </p>
+        </div>
     </div>
 </div>
 
@@ -3361,13 +3395,20 @@
     var practiceFiles = [practice1,practice2,practice3,practice4,practice5,practice6,practice7,practice8];
 
     var practiceCount = 0;
+    var passedPractInstruct2 = 0;
+
+    var practice2correct = 0;
 
     function showPracticeTrial() {
 
         $('#correctFeed').hide();
         $('#incorrectFeed').hide();
 
-        if (practiceCount >= 8) {
+        if (practiceCount === 4 && passedPractInstruct2 === 0) {
+            $('.progFrame').hide();
+            $('#practiceTrialsPage2').show();
+            passedPractInstruct2 = 1;
+        } else if (practiceCount >= 8) {
             $('.progFrame').hide();
             $('#startExpPage').show();
         } else {
@@ -3426,8 +3467,7 @@
         showPracticeTrial();
         //hide current page
         $('#practiceTrialsPage').hide();
-        //show the progress bar
-        //$('.progFrame').show();
+        $('#practiceTrialsPage2').hide();
     }
 
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|| Progress Bar ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -3486,8 +3526,7 @@
 
     // Practice Trial Control
     $('#startPractice').click(showFirstPractice);
-    //$('.rb1p').click(buttonClicked);
-    //$('.rb2p').click(buttonClicked);
+    $('#startPractice2').click(showFirstPractice);
 
     // Real Trial Control
     $('#startExperiment').click(showFirstTrial);
