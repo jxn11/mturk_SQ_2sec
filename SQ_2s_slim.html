@@ -1,154 +1,6 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"> </script>
-<script>
-
-    var HC_key = [];
-    var HC_version = [];
-
-    for(i = 0; i < 6; i++){
-        jj = Math.floor(Math.random() * 3) + 1 ;
-        HC_key[i] = jj.toString();
-    }
-
-    for(i = 0; i < 6; i++){
-        jj = Math.floor(Math.random() * 2) + 1 ;
-        HC_version[i] = jj.toString();
-    }
-
-    var HC_corr = 0;
-
-    var n_trials_total = 200;
-
-    var PF =[];
-    var PF_key =[];
-    var RepNonRep_pre = [];
-
-    for (i = 0; i < n_trials_total; i++) {
-        var rnr = ((i+3)%2)+1;
-        RepNonRep_pre[i] = rnr.toString();
-
-        var pft = Math.floor(Math.random() * 2) + 1 ;
-        PF_key[i] = pft.toString();
-        if (pft==1){
-            PF[i] = "P";
-        }
-        else {
-            PF[i] = "F";
-        }
-    }
-    var ind = -1;
-
-    function ReturnRadio(HC){
-        ind++;
-        var radios = document.getElementsByName(HC);
-        for (var i = 0, length = radios.length; i < length; i++) {
-            if (radios[i].checked) {
-                if (radios[i].value==HC_key[ind]){HC_corr++}
-                break;
-            }
-        }
-    }
-
-    function stim_play(stim) {
-        var clip = document.getElementById(stim);
-        clip.play();
-    }
-
-    function clickDisable(button)
-    {
-        document.getElementById(button).disabled=true;
-    }
-
-    var current = 1; //current page
-    var moved = []; //pages moved by the rand
-    var movedto = [];
-
-    //takes randomization into account
-    function effectivePage(pagenum) {
-        var index = moved.indexOf(pagenum);
-        if(index == -1) {
-            return pagenum;
-        }else{
-            return movedto[index];
-        }
-    }
-
-    var numberText = []; //stores divs to be updated on page change
-    var pntexts = []; //texts in them
-
-    function updatePageNumbers() {
-        for(var i = 0; i < numberText.length; i++) {
-            numberText[i].innerHTML = pntexts[i][0] + current + pntexts[i][1];
-        }
-    }
-
-    //make one vanish and the other appear
-    function swap(vanish, appear) {
-        document.getElementById(vanish).style.display = "none";
-        //document.getElementById(appear).style.display = "inline";
-        document.getElementById(appear).style.display = "";
-        updatePageNumbers();
-    }
-
-    //go to the next page
-    function next() {
-        current++;
-        swap(effectivePage(current - 1), effectivePage(current));
-    }
-
-    function endHIT() {
-        current++;
-        swap(effectivePage(current - 1), 19);
-    }
-
-    //shuffles the array
-    Array.prototype.shuffle = function () {
-        for (var i = this.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var tmp = this[i];
-            this[i] = this[j];
-            this[j] = tmp;
-        }
-
-        return this;
-    };
-
-
-    function endPreScreen() {
-        $('.wrapper').hide();
-        //$('#startExpPage').show();
-        $('#explainSQs').show();
-    }
-
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<style type="text/css">
-
-.wrapper {
-    height: 80%;
-    width: 100%;
-    display: table;
-}
-
-.page {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.cell {
-    margin: 0 auto;
-    padding: 10px;
-    width: 850px;
-}
-
-.warning {
-    font-weight: bold;
-}
-
-.demQ {
-        background-color: #f2f2f2;
-    }
-
-</style>
+<head>
+    <link rel="stylesheet" type="text/css" href="SQ_2s_Style.css">
+</head>
 
 <div class="wrapper">
     <div class="page" id="1">
@@ -517,204 +369,22 @@
                         </div>
                     </div>
 
-                        <div class="page" id="19" style="display: none;">
-                            <div class="cell">
-                                <div class="warning">You&#39;ve completed the HIT -- Thanks for your help!</div>
+                    <div class="page" id="19" style="display: none;">
+                        <div class="cell">
+                            <div class="warning">You&#39;ve completed the HIT -- Thanks for your help!</div>
 
-                                <p>&nbsp;</p>
+                            <p>&nbsp;</p>
 
-                                <p>&nbsp;</p>
-                                <br />
-                                <input type="submit" value="Submit" /></div>
-                        </div>
+                            <p>&nbsp;</p>
+                            <br />
+                            <input type="submit" value="Submit" /></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-<style>
-
-    body {
-        font-family: Ariel, Helvetica;
-        font-size: 14pt;
-    }
-
-    .progFrame {
-        display: none;
-
-        width: 500px;
-        height: 100px;
-
-        border: 2px solid black;
-        border-radius: 10px;
-
-        margin: 10px auto;
-    }
-
-    .trialDiv {
-        display: none;
-
-        width: 500px;
-        height: 250px;
-
-        border: 2px solid black;
-        border-radius: 10px;
-
-        margin: 10px auto;
-    }
-
-    .trialQ, .trialQ_fake {
-        padding: 25px auto;
-        width:75%;
-
-        margin: 20px auto;
-
-        text-align: center;
-        font-size: 22px;
-        font-family: sans-serif;
-    }
-
-    .trialQ_fake {
-        color: transparent;
-    }
-
-    .listeningDisplay {
-        display: none;
-
-        width: 500px;
-        height: 250px;
-
-        border: 2px solid black;
-        border-radius: 10px;
-
-        margin: 10px auto;
-    }
-
-    .responseButtons {
-        margin:10px 10px;
-        padding: 50px;
-
-        text-align: center;
-    }
-
-    .rb1, .rb2, .rb1p, .rb2p {
-        display: inline-block;
-
-        padding: 25px;
-        margin: auto 25px;
-    }
-
-    .rb1_fake, .rb2_fake {
-        display: inline-block;
-
-        padding: 25px;
-        margin: auto 25px;
-
-        opacity: 0.6;
-        cursor: not-allowed;
-    }
-
-    #submitButton {
-        display: none;
-    }
-
-    #finalButton {
-        display: none;
-    }
-
-    #instructions {
-        width: 500px;
-        margin: 100px auto 0 auto;
-    }
-
-    #startExperimentButton, #startPracticeButton, #startPracticeButton2, #startPracticeButton3 {
-        width: 150px;
-        margin: 0 auto;
-        text-align: center;
-        border: 4px outset gray;
-        background: gray;
-        padding: 5px;
-    }
-
-    #startExperiment, #startPractice, #startPractice2, #startPractice3 {
-        color: lightskyblue;
-        text-decoration: none;
-    }
-
-    #startExperiment:hover, #startPractice:hover, #startPractice2:hover, #startPractice3:hover {
-        color: lightblue;
-    }
-
-    #startExpPage {
-        display:none;
-    }
-
-    #progTitleCont {
-        width: 25%;
-        margin: -10px 65% -10px 10%;
-    }
-
-    #progContainer {
-        width: 90%;
-
-        margin: 0px auto;
-    }
-
-    #myProgress {
-        width: 100%;
-        background-color: lightgrey;
-        border-radius: 5px;
-    }
-    #myBar {
-        width: 0%;
-        height: 30px;
-        background-color: dodgerblue;
-        border-radius: 5px;
-    }
-
-    #correctFeed {
-        display: none;
-
-        width: 500px;
-        height: 250px;
-
-        border: 2px solid black;
-        border-radius: 10px;
-
-        margin: 10px auto;
-    }
-
-    #incorrectFeed {
-        display: none;
-
-        width: 500px;
-        height: 250px;
-
-        border: 2px solid black;
-        border-radius: 10px;
-
-        margin: 10px auto;
-    }
-
-    #explainSQs, #practiceTrialsPage, #practiceTrialsPage2, #practiceTrialsPage3 {
-        display: none;
-    }
-
-    #quiltTable{
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    #quiltTable th, td {
-        text-align: center;
-        padding: 8px;
-    }
-
-    #quiltTable tr:nth-child(even){background-color: #f2f2f2}
-</style>
+</div>
 
 <div id="explainSQs" class="page">
     <div class="cell">
@@ -2616,7 +2286,127 @@
     <input type="submit" value="Submit" />
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"> </script>
 <script>
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|| Legacy - Handle Beginning ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    var HC_key = [];
+    var HC_version = [];
+
+    for(i = 0; i < 6; i++){
+        jj = Math.floor(Math.random() * 3) + 1 ;
+        HC_key[i] = jj.toString();
+    }
+
+    for(i = 0; i < 6; i++){
+        jj = Math.floor(Math.random() * 2) + 1 ;
+        HC_version[i] = jj.toString();
+    }
+
+    var HC_corr = 0;
+
+    var n_trials_total = 200;
+
+    var PF =[];
+    var PF_key =[];
+    var RepNonRep_pre = [];
+
+    for (i = 0; i < n_trials_total; i++) {
+        var rnr = ((i+3)%2)+1;
+        RepNonRep_pre[i] = rnr.toString();
+
+        var pft = Math.floor(Math.random() * 2) + 1 ;
+        PF_key[i] = pft.toString();
+        if (pft==1){
+            PF[i] = "P";
+        }
+        else {
+            PF[i] = "F";
+        }
+    }
+    var ind = -1;
+
+    function ReturnRadio(HC){
+        ind++;
+        var radios = document.getElementsByName(HC);
+        for (var i = 0, length = radios.length; i < length; i++) {
+            if (radios[i].checked) {
+                if (radios[i].value==HC_key[ind]){HC_corr++}
+                break;
+            }
+        }
+    }
+
+    function stim_play(stim) {
+        var clip = document.getElementById(stim);
+        clip.play();
+    }
+
+    function clickDisable(button)
+    {
+        document.getElementById(button).disabled=true;
+    }
+
+    var current = 1; //current page
+    var moved = []; //pages moved by the rand
+    var movedto = [];
+
+    //takes randomization into account
+    function effectivePage(pagenum) {
+        var index = moved.indexOf(pagenum);
+        if(index == -1) {
+            return pagenum;
+        }else{
+            return movedto[index];
+        }
+    }
+
+    var numberText = []; //stores divs to be updated on page change
+    var pntexts = []; //texts in them
+
+    function updatePageNumbers() {
+        for(var i = 0; i < numberText.length; i++) {
+            numberText[i].innerHTML = pntexts[i][0] + current + pntexts[i][1];
+        }
+    }
+
+    //make one vanish and the other appear
+    function swap(vanish, appear) {
+        document.getElementById(vanish).style.display = "none";
+        //document.getElementById(appear).style.display = "inline";
+        document.getElementById(appear).style.display = "";
+        updatePageNumbers();
+    }
+
+    //go to the next page
+    function next() {
+        current++;
+        swap(effectivePage(current - 1), effectivePage(current));
+    }
+
+    function endHIT() {
+        current++;
+        swap(effectivePage(current - 1), 19);
+    }
+
+    //shuffles the array
+    Array.prototype.shuffle = function () {
+        for (var i = this.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var tmp = this[i];
+            this[i] = this[j];
+            this[j] = tmp;
+        }
+
+        return this;
+    };
+
+
+    function endPreScreen() {
+        $('.wrapper').hide();
+        //$('#startExpPage').show();
+        $('#explainSQs').show();
+    }
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|| Practice Trials ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
     function startPractice () {
