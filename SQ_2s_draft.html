@@ -1070,7 +1070,7 @@
         margin: 100px auto 0 auto;
     }
 
-    #startExperimentButton, #startPracticeButton, #startPracticeButton2 {
+    #startExperimentButton, #startPracticeButton, #startPracticeButton2, #startPracticeButton3 {
         width: 150px;
         margin: 0 auto;
         text-align: center;
@@ -1079,12 +1079,12 @@
         padding: 5px;
     }
 
-    #startExperiment {
+    #startExperiment, #startPractice, #startPractice2, #startPractice3 {
         color: lightskyblue;
         text-decoration: none;
     }
 
-    #startExperiment:hover {
+    #startExperiment:hover, #startPractice:hover, #startPractice2:hover, #startPractice3:hover {
         color: lightblue;
     }
 
@@ -1139,7 +1139,7 @@
         margin: 10px auto;
     }
 
-    #explainSQs, #practiceTrialsPage, #practiceTrialsPage2 {
+    #explainSQs, #practiceTrialsPage, #practiceTrialsPage2, #practiceTrialsPage3 {
         display: none;
     }
 
@@ -1329,6 +1329,26 @@
         <div id="startPracticeButton2">
             <p>
                 <a href="#" id="startPractice2">Start Practice</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="practiceTrialsPage3" class="page">
+    <div class="cell">
+        <div id="practiceInstructions3">
+            <h3>More Practice Trials</h3>
+            <p>
+                Whoops! It looks like you had some trouble with that section.
+            </p>
+            <p>
+                Let's try that again.
+            </p>
+        </div>
+
+        <div id="startPracticeButton3">
+            <p>
+                <a href="#" id="startPractice3">Start Practice</a>
             </p>
         </div>
     </div>
@@ -3287,8 +3307,6 @@
         switch (practiceCount) {
             case 0:
             case 3:
-            case 4:
-            case 7:
                 if (response === 1) { // correct response
                     console.log('Correct!');
                     $('#correctFeed').show();
@@ -3299,8 +3317,6 @@
                 break;
             case 1:
             case 2:
-            case 5:
-            case 6:
                 if (response === 2) { // correct response
                     console.log('Correct!');
                     $('#correctFeed').show();
@@ -3308,7 +3324,31 @@
                     console.log('Incorrect!');
                     $('#incorrectFeed').show();
                 }
-
+                break;
+            // Second half of practice section
+            // Correct-count logged
+            case 4:
+            case 7:
+                if (response === 1) { // correct response
+                    console.log('Correct!');
+                    $('#correctFeed').show();
+                    practice2correct++;
+                } else { // incorrect
+                    console.log('Incorrect!');
+                    $('#incorrectFeed').show();
+                }
+                break;
+            case 5:
+            case 6:
+                if (response === 2) { // correct response
+                    console.log('Correct!');
+                    $('#correctFeed').show();
+                    practice2correct++;
+                } else { // incorrect
+                    console.log('Incorrect!');
+                    $('#incorrectFeed').show();
+                }
+                break;
         }
         practiceCount++;
     }
@@ -3399,20 +3439,28 @@
 
     var practice2correct = 0;
 
+    // Handle the presentation of practice trials
     function showPracticeTrial() {
 
+        // Hide any feedback display
         $('#correctFeed').hide();
         $('#incorrectFeed').hide();
 
-        if (practiceCount === 4 && passedPractInstruct2 === 0) {
+        if (practiceCount === 4 && passedPractInstruct2 === 0) { // Participant has complete first 4 practice trials - navigate to second practice instruct page
             $('.progFrame').hide();
             $('#practiceTrialsPage2').show();
-            passedPractInstruct2 = 1;
-        } else if (practiceCount >= 8) {
+            passedPractInstruct2 = 1;   // toggle to not show instructions again
+        } else if (practiceCount >= 8) {    // Participant has completed all 8 practice trials
             $('.progFrame').hide();
-            $('#startExpPage').show();
+            if (practice2correct >= 3) {    // Participant correct count meets the 75% cutoff threshold
+                $('#startExpPage').show();
+            } else {                        // Participant does not meet threshold - show additional instruction page, reset counters for second half of practice stage
+                $('#practiceTrialsPage3').show();
+                practice2correct = 0;
+                practiceCount = 4;
+            }
+            // Present the practice trial
         } else {
-
             setTimeout(function () {
 
                 $('#brokenButton').show();
@@ -3468,6 +3516,7 @@
         //hide current page
         $('#practiceTrialsPage').hide();
         $('#practiceTrialsPage2').hide();
+        $('#practiceTrialsPage3').hide();
     }
 
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|| Progress Bar ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -3527,6 +3576,7 @@
     // Practice Trial Control
     $('#startPractice').click(showFirstPractice);
     $('#startPractice2').click(showFirstPractice);
+    $('#startPractice3').click(showFirstPractice);
 
     // Real Trial Control
     $('#startExperiment').click(showFirstTrial);
