@@ -244,7 +244,11 @@
                     begin the study.
                 </p>
             </div>
-            <h3 class="warning">You must wear&nbsp;headphones to do this HIT!</h3>
+            <h3>Critical Qualifications & Exclusion Criteria:</h3>
+            <h4>- You must be a native English speaker, and have no knowledge of Korean (language)</h4>
+            <h4>- You must use headphones while working on this hit (either over-ear or in-ear types are okay</h4>
+            <h3>If you do not meet the above criteria, please return the HIT</h3>
+            <!-- <h3 class="warning">You must wear&nbsp;headphones to do this HIT!</h3> !-->
             <input onclick="next();" type="button" value="Continue" />
             <p>&nbsp;</p>
         </div>
@@ -552,8 +556,8 @@
                                     where.appendChild(x);
                                     /* Switch these lines of code for testing
                                      (allows bypassing the screening cutoff threshold */
-                                    //if (HC_corr<5) {endHIT();} //disabled for testing
-                                    if (HC_corr<0) {endHIT();}
+                                    if (HC_corr<5) {endHIT();} //disabled for testing
+                                    //if (HC_corr<0) {endHIT();} // for testing: no pre screen threshold
                                     else {endPreScreen();}
                                 }
                             </script>
@@ -589,7 +593,7 @@
         <p>
             This experiment uses a set of auditory stimuli that we call <b>"Speech Quilts"</b>.
             We call these Speech Quilts because they are composed of shorter segments of speech, which have been scrambled and "stitched" together.
-            The language and how long the segments are that make up a speech quilt will vary across trials.
+            The language and segment lengths that make up a speech quilt will vary across trials.
         </p>
     <h4>Click on the buttons below to get a sense of what the speech quilts sound like</h4>
 
@@ -802,6 +806,8 @@
         <p>
             Please know that we hope to use this data to further our understanding of how the human brain processes and understands speech, so it
             is imperative that you stay focused and do your best with the task.
+            Please refrain from using your phone or doing any external web browsing while you are working on the
+            experiment.
         </p>
         <p>
             Thanks and good luck!
@@ -812,6 +818,20 @@
         <p>
             <a href="#" id="startExperiment">Start Experiment</a>
         </p>
+    </div>
+</div>
+
+<div class="page" id="participantFeedback" style="display: none;">
+    <div class="cell">
+        <p>Briefly: What strategies did you use to do this task?</p>
+        <textarea cols="50" id="comments" name="comments" rows="4"></textarea><br />
+        &nbsp;
+        <p>Please share any other comments or feedback:</p>
+        <textarea cols="50" id="feedback" name="feedback" rows="4"></textarea><br />
+
+        <p>&nbsp;</p>
+        <input onclick="concludeExp()" type="button" value="Continue" />
+        <p>&nbsp;</p>
     </div>
 </div>
 
@@ -2780,6 +2800,7 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|| Initialize Trial Ordering ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     var curTrial = 0;
     var nTrials = 120;
+    //var nTrials = 6; //temp testing
     var startTrialTime;
 
     var numPerCond = nTrials/6;
@@ -3050,7 +3071,9 @@
         } else {
             console.log('done!');
             //$('#submitButton').show();
-            $('#finalButton').show();
+            //$('#finalButton').show();
+            $('.progFrame').hide();
+            $('#participantFeedback').show();
         }
     }
 
@@ -3115,6 +3138,11 @@
         $('#instructions').hide();
         $('#startExperimentButton').hide();
         $('.progFrame').show();
+    }
+
+    function concludeExp() {
+        $('#participantFeedback').hide();
+        $('#finalButton').show();
     }
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|| Progress Bar ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     var barWidth = 0;
