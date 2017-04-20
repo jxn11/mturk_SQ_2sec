@@ -342,7 +342,7 @@
 
                     <p>&nbsp;</p>
 
-                    <div class="warning">First, set your computer volume to about 25% of maximum.</div>
+                    <div class="warning">First, set your computer volume to about 15% of maximum.</div>
 
                     <p>&nbsp;</p>
 
@@ -2543,6 +2543,16 @@
         var clip = document.getElementById(stim);
         clip.play();
     }
+
+    // Prevent multiple audio streams from playing at one on the SQ Table page
+    window.addEventListener("play", function(evt)
+    {
+        if(window.$_currentlyPlaying && window.$_currentlyPlaying != evt.target)
+        {
+            window.$_currentlyPlaying.pause();
+        }
+        window.$_currentlyPlaying = evt.target;
+    }, true);
 
     function clickDisable(button)
     {
