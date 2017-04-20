@@ -381,16 +381,6 @@
             <audio id="antiphase_HC_2_2" source="" src="http://mcdermottlab.mit.edu/mturk_stimuli/audio_calibration/antiphase_HC_OSI.wav" type="audio/mpeg">&nbsp;</audio>
 
             <audio id="antiphase_HC_3_2" source="" src="http://mcdermottlab.mit.edu/mturk_stimuli/audio_calibration/antiphase_HC_OIS.wav" type="audio/mpeg">&nbsp;</audio>
-            <!--
-            <script>
-                var HC_but_1 = "antiphase_HC_".concat(HC_key[0],"_",HC_version[0]);
-                var HC_but_2 = "antiphase_HC_".concat(HC_key[1],"_",HC_version[1]);
-                var HC_but_3 = "antiphase_HC_".concat(HC_key[2],"_",HC_version[2]);
-                var HC_but_4 = "antiphase_HC_".concat(HC_key[3],"_",HC_version[3]);
-                var HC_but_5 = "antiphase_HC_".concat(HC_key[4],"_",HC_version[4]);
-                var HC_but_6 = "antiphase_HC_".concat(HC_key[5],"_",HC_version[5]);
-            </script>
-            !-->
 
             <div class="wrapper">
                 <div class="page" id="4" style="display: none;">
@@ -803,14 +793,14 @@
             You will not receive feedback during this section.
         </p>
         <p>
-            There will be a progress bar at the top of the screen so you can monitor your how long you have to go.
+            There will be a progress bar at the top of the screen to track your progression.
         </p>
         <p>
             Please know that we hope to use this data to further our understanding of how the human brain processes and understands speech, so it
             is imperative that you stay focused and do your best with the task.
         </p>
         <p>
-            Thanks, and good luck!
+            Thanks and good luck!
         </p>
     </div>
 
@@ -835,8 +825,8 @@
 <div id="brokenButton" class="listeningDisplay">
     <p class="trialQ_fake">Which example was composed of <b>shorter</b> segments?</p>
     <div class="responseButtons">
-        <input type="button" class="rb1_fake" name="question1" value="Example 1">
-        <input type="button" class="rb2_fake" name="question1" value="Example 2">
+        <input type="button" class="rb1_fake" id="rb1_fake" name="question1" value="Example 1">
+        <input type="button" class="rb2_fake" id="rb2_fake" name="question1" value="Example 2">
     </div>
 </div>
 
@@ -2684,22 +2674,25 @@
             }
             // Present the practice trial
         } else {
+
+            // Get the stim files and load sounds
+            fileName = practiceFiles[practiceCount];
+            console.log(fileName);
+            var s = new Array(2);
+            s = loadSound(fileName);
+
+            $('#brokenButton').show();
+
             setTimeout(function () {
-
-                $('#brokenButton').show();
-
-                // Get the stim files and load sounds
-                fileName = practiceFiles[practiceCount];
-                console.log(fileName);
-                var s = new Array(2);
-                s = loadSound(fileName);
 
                 // Delay stim 2 start for 2.5s
                 setTimeout(function () {
                     s[1].play();
+                    $("#rb2_fake").css("background","LightYellow");
                     // Pause stim 2 & enable response buttons after 1920ms
                     setTimeout(function () {
                         s[1].pause();
+                        $("#rb2_fake").css("background","");
                         $('#brokenButton').hide();
                         $('#practice' + (practiceCount + 1)).show();
                     }, 1920);
@@ -2707,8 +2700,10 @@
 
                 // Start the first sound & pause after 1920ms
                 s[0].play();
+                $("#rb1_fake").css("background","LightYellow");
                 setTimeout(function () {
                     s[0].pause();
+                    $("#rb1_fake").css("background","");
                 }, 1920);
 
             }, 500);
@@ -3058,23 +3053,25 @@
     function showTrial(whichTrial) {
         // Function to control stimuli presentation
 
+        // Get the stim files and load sounds
+        fileName = trialAssembler(curTrial);
+        console.log(fileName);
+        var s = new Array(2);
+        s = loadSound(fileName);
+
+        $('#brokenButton').show(); // display non-clickable response buttons
+
         setTimeout(function() {
             // Set 500ms delay to start the stimuli
-
-            $('#brokenButton').show(); // display non-clickable response buttons
-
-            // Get the stim files and load sounds
-            fileName = trialAssembler(curTrial);
-            console.log(fileName);
-            var s = new Array(2);
-            s = loadSound(fileName);
 
             // Delay stim 2 start for 2.5s
             setTimeout(function () {
                 s[1].play();
+                $("#rb2_fake").css("background","LightYellow");
                 // Pause stim 2 & enable response buttons after 1920ms
                 setTimeout(function () {
                     s[1].pause();
+                    $("#rb2_fake").css("background","");
                     $('#brokenButton').hide();
                     if ((whichTrial+1) < 10) {
                         $('#trial00' + (whichTrial + 1)).show();
@@ -3088,8 +3085,10 @@
 
             // Start the first sound & pause after 1920ms
             s[0].play();
+            $("#rb1_fake").css("background","LightYellow");
             setTimeout(function () {
                 s[0].pause();
+                $("#rb1_fake").css("background","");
             },1920);
 
         },500);
