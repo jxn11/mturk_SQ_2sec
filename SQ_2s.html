@@ -246,7 +246,7 @@
             </div>
             <h3>Critical Qualifications & Exclusion Criteria:</h3>
             <h4>- You must be a native English speaker, and have no knowledge of Korean (language)</h4>
-            <h4>- You must use headphones while working on this hit (either over-ear or in-ear types are okay</h4>
+            <h4>- You must use headphones while working on this HIT (either over-ear or in-ear types are okay</h4>
             <h3>If you do not meet the above criteria, please return the HIT</h3>
             <!-- <h3 class="warning">You must wear&nbsp;headphones to do this HIT!</h3> !-->
             <input onclick="next();" type="button" value="Continue" />
@@ -556,8 +556,8 @@
                                     where.appendChild(x);
                                     /* Switch these lines of code for testing
                                      (allows bypassing the screening cutoff threshold */
-                                    //if (HC_corr<5) {endHIT();} //disabled for testing
-                                    if (HC_corr<0) {endHIT();} // for testing: no pre screen threshold
+                                    if (HC_corr<5) {endHIT();} //disabled for testing
+                                    //if (HC_corr<0) {endHIT();} // for testing: no pre screen threshold
                                     else {endPreScreen();}
                                 }
                             </script>
@@ -2801,28 +2801,7 @@
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|| Initialize Trial Ordering ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-/*
-    var curTrial = 0;
-    var nTrials = 120;
-    //var nTrials = 6; //temp testing
-    var startTrialTime;
-*/
-
     var numPerCond = nTrials/6;
-
-/*
-    var lengthConds = [["30","60"],["60","120"],["120","240"],["240","480"],["480","960"],["960","1920"]];
-    var langConds = [["Eng","Eng"],["Eng","Kor"],["Kor","Kor"],["Kor","Eng"]];
-
-    var cond1 = new Array(numPerCond).fill(1);
-    var cond2 = new Array(numPerCond).fill(2);
-    var cond3 = new Array(numPerCond).fill(3);
-    var cond4 = new Array(numPerCond).fill(4);
-    var cond5 = new Array(numPerCond).fill(5);
-    var cond6 = new Array(numPerCond).fill(6);
-
-    var trialOrder = shuffle(cond1.concat(cond2).concat(cond3).concat(cond4).concat(cond5).concat(cond6));
-*/
 
     var trialOrder = shuffle(trialCodes);
 
@@ -2831,16 +2810,6 @@
     var trialOrderPosition = withinOrder.trialOrderPosition;
     var trialOrderLang = withinOrder.trialOrderLang;
     var trialExemplar = withinOrder.trialExemplar;
-
-/*
-    var condOneCount = 0;
-    var condTwoCount = 0;
-    var condThreeCount = 0;
-    var condFourCount = 0;
-    var condFiveCount = 0;
-    var condSixCount = 0;
-    var fileName = [];
-*/
 
     // Do some shuffling to create the trial ordering
     function createOrdering() {
@@ -2988,16 +2957,6 @@
         return fileName = [("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_" + lang[0] +"_"+ lengths[0] +"ms_ex"+ exemps[0] +".wav"), ("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_" + lang[1] +"_"+ lengths[1] +"ms_ex"+ exemps[1] +".wav")];
         // return the vector with the stim files
     }
-
-/*
-    var case30count = 0;
-    var case60count = 0;
-    var case120count = 0;
-    var case240count = 0;
-    var case480count = 0;
-    var case960count = 0;
-    var case1920count = 0;
-*/
 
     function getExemps(lengths) {
         // Function takes the segment lengths being used in the trial and draws the next exemplar which corresponds to
