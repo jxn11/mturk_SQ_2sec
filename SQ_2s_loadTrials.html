@@ -1,0 +1,3181 @@
+<style>
+    .wrapper {
+        height: 80%;
+        width: 100%;
+        display: table;
+    }
+
+    .page {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .cell {
+        margin: 0 auto;
+        padding: 10px;
+        width: 850px;
+    }
+
+    .warning {
+        font-weight: bold;
+    }
+
+    .demQ {
+        background-color: #f2f2f2;
+    }
+
+    body {
+        font-family: Ariel, Helvetica, sans-serif;
+        font-size: 14pt;
+    }
+
+    .progFrame {
+        display: none;
+
+        width: 500px;
+        height: 100px;
+
+        border: 2px solid black;
+        border-radius: 10px;
+
+        margin: 10px auto;
+    }
+
+    .trialDiv {
+        display: none;
+
+        width: 500px;
+        height: 250px;
+
+        border: 2px solid black;
+        border-radius: 10px;
+
+        margin: 10px auto;
+    }
+
+    .trialQ, .trialQ_fake {
+        padding: 25px auto;
+        width:75%;
+
+        margin: 20px auto;
+
+        text-align: center;
+        font-size: 22px;
+        font-family: sans-serif;
+    }
+
+    .trialQ_fake {
+        color: transparent;
+    }
+
+    .listeningDisplay {
+        display: none;
+
+        width: 500px;
+        height: 250px;
+
+        border: 2px solid black;
+        border-radius: 10px;
+
+        margin: 10px auto;
+    }
+
+    .responseButtons {
+        margin:10px 10px;
+        padding: 50px;
+
+        text-align: center;
+    }
+
+    .rb1, .rb2, .rb1p, .rb2p {
+        display: inline-block;
+
+        padding: 25px;
+        margin: auto 25px;
+
+        background-color: lightgray;
+    }
+
+    .rb1_fake, .rb2_fake {
+        display: inline-block;
+
+        padding: 25px;
+        margin: auto 25px;
+
+        background-color: lightgray;
+
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    #submitButton {
+        display: none;
+    }
+
+    #finalButton {
+        display: none;
+    }
+
+    #instructions {
+        width: 500px;
+        margin: 100px auto 0 auto;
+    }
+
+    #startExperimentButton, #startPracticeButton, #startPracticeButton2, #startPracticeButton3 {
+        width: 150px;
+        margin: 0 auto;
+        text-align: center;
+        border: 4px outset gray;
+        background: gray;
+        padding: 5px;
+    }
+
+    #startExperiment, #startPractice, #startPractice2, #startPractice3 {
+        color: lightskyblue;
+        text-decoration: none;
+    }
+
+    #startExperiment:hover, #startPractice:hover, #startPractice2:hover, #startPractice3:hover {
+        color: lightblue;
+    }
+
+    #startExpPage {
+        display:none;
+    }
+
+    #progTitleCont {
+        width: 25%;
+        margin: -10px 65% -10px 10%;
+    }
+
+    #progContainer {
+        width: 90%;
+
+        margin: 0 auto;
+    }
+
+    #myProgress {
+        width: 100%;
+        background-color: lightgrey;
+        border-radius: 5px;
+    }
+    #myBar {
+        width: 0;
+        height: 30px;
+        background-color: dodgerblue;
+        border-radius: 5px;
+    }
+
+    #correctFeed {
+        display: none;
+
+        width: 500px;
+        height: 250px;
+
+        border: 2px solid black;
+        border-radius: 10px;
+
+        margin: 10px auto;
+    }
+
+    #incorrectFeed {
+        display: none;
+
+        width: 500px;
+        height: 250px;
+
+        border: 2px solid black;
+        border-radius: 10px;
+
+        margin: 10px auto;
+    }
+
+    #explainSQs, #practiceTrialsPage, #practiceTrialsPage2, #practiceTrialsPage3 {
+        display: none;
+    }
+
+    #quiltTable{
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #quiltTable th, td {
+        text-align: center;
+        padding: 8px;
+    }
+
+    #quiltTable tr:nth-child(even){background-color: #f2f2f2}
+</style>
+
+<div class="wrapper">
+    <div class="page" id="1">
+        <div class="cell">
+            <div align="center">
+                <h1>Auditory Perception Experiment - Judgements of Speech Sounds</h1>
+            </div>
+            <div>
+                <p>
+                    This research examines how we process sounds. You will be asked to listen to different types of
+                    sounds and we will ask you to respond to these sounds via button presses.
+                </p>
+                <p>
+                    After completing a basic demographic questionnaire, you will be asked to complete an initial screening
+                    task. If you perform sufficiently on the screening portion, you will have the opportunity to
+                    proceed to the main experiment.
+                </p>
+                <p>
+                    The screening task is brief, and will take no more than 5 minutes to complete. You will be
+                    compensated $ 0.25 for completing this task. The main experiment will take about 30 minutes
+                    to complete, and you will receive a bonus payment of $ 2.50 for successfully completing all trials.
+                </p>
+                <p>
+                    We do not ask for your name or any other information that might identify you. Your participation in
+                    this research study is voluntary. You may withdraw at any time, but you must proceed to the final
+                    screen of the study in order to submit your results and receive compensation.
+                </p>
+                <p>
+                    In accordance with Mechanical Turk policies, we may reject your work if the HIT was not completed
+                    correctly or the instructions were not followed.
+                </p>
+                <p>
+                    If you have any questions about the research please contact us at sound-lab@duke.edu. If you have
+                    questions about your rights as a research subject, contact the Duke University research review
+                    committee at campusirb@duke.edu or at 919-684-3030. If you agree to participate, click below to
+                    begin the study.
+                </p>
+            </div>
+            <h3 class="warning">You must wear&nbsp;headphones to do this HIT!</h3>
+            <input onclick="next();" type="button" value="Continue" />
+            <p>&nbsp;</p>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="page" id="2" style="display: none;">
+            <div class="cell">
+                <div align="center">&nbsp;</div>
+
+                <p class="demQ">1. What is your gender?</p>
+
+                <table border="0" cellpadding="0" cellspacing="4">
+                    <tbody>
+                    <tr>
+                        <td valign="middle"><input name="Q1Gender" type="radio" value="Male" /></td>
+                        <td><span class="answertext">Male</span></td>
+                    </tr>
+                    <tr>
+                        <td valign="middle"><input name="Q1Gender" type="radio" value="Female" /></td>
+                        <td><span class="answertext">Female</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <p class="demQ">&nbsp;2. What is your age?</p>
+
+                <p><input id="Q2age" name="Q2age" size="6" type="text" /></p>
+
+                <p class="demQ">3. Country?</p>
+
+                <table border="0" cellpadding="0" cellspacing="4">
+                    <tbody>
+                    <tr>
+                        <td valign="middle"><input name="Q3Country" type="radio" value="USA" /></td>
+                        <td><span class="answertext">United States</span></td>
+                    </tr>
+                    <tr>
+                        <td valign="middle"><input name="Q3Country" type="radio" value="India" /></td>
+                        <td><span class="answertext">Canada</span></td>
+                    </tr>
+                    <tr>
+                        <td valign="middle"><input name="Q3Country" type="radio" value="Other" /></td>
+                        <td><span class="answertext">Other</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <p class="demQ">4. Are you using in-ear headphones or over-the-ear headphones?</p>
+
+                <table border="0" cellpadding="0" cellspacing="4">
+                    <tbody>
+                    <tr>
+                        <td valign="middle"><input name="Q4headphones" type="radio" value="inear" /></td>
+                        <td><span class="answertext">In-ear headphones / earbuds</span></td>
+                    </tr>
+                    <tr>
+                        <td valign="middle"><input name="Q4headphones" type="radio" value="overear" /></td>
+                        <td><span class="answertext">Over-the-ear headphones</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <p class="demQ">5. Do you have any hearing loss?</p>
+
+                <table border="0" cellpadding="0" cellspacing="4">
+                    <tbody>
+                    <tr>
+                        <td valign="middle"><input name="Q5hearingloss" type="radio" value="noHL" /></td>
+                        <td><span class="answertext">Not aware of any hearing loss</span></td>
+                    </tr>
+                    <tr>
+                        <td valign="middle"><input name="Q5hearingloss" type="radio" value="yesHL" /></td>
+                        <td><span class="answertext">Yes, I have some hearing loss</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <p>&nbsp;</p>
+
+                <div class="warning">Please answer every question; blank response fields will result in an invalid submission!</div>
+
+                <div>&nbsp;</div>
+
+                <div class="warning">Press &#39;Continue&#39; when complete to begin audio calibration.</div>
+                <input onclick="next();" type="button" value="Continue" />
+                <p>&nbsp;</p>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="page" id="3" style="display: none;">
+                <div class="cell">
+                    <div align="center">&nbsp;</div>
+
+                    <p>&nbsp;</p>
+
+                    <div class="warning">You must be wearing headphones to do this HIT!</div>
+
+                    <p>&nbsp;</p>
+
+                    <div class="warning">First, set your computer volume to about 15% of maximum.</div>
+
+                    <p>&nbsp;</p>
+
+                    <div class="warning">Level Calibration</div>
+
+                    <div>Press the button, then turn up the volume on your computer until the calibration noise is at a loud but comfortable level.</div>
+
+                    <p>&nbsp;</p>
+
+                    <div class="warning">Play the calibration sound as many times as you like.</div>
+                    <p>
+                        <audio id="myAudio" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/Calibrate/2s_SQ_Calibrate.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                        <input onclick="stim_play('myAudio') " type="button" value="Calibration" />
+                    </p>
+
+                    <p>&nbsp;</p>
+
+                    <p>&nbsp;</p>
+
+                    <div class="warning">Press &#39;Continue&#39; when level calibration is complete.</div>
+                    <input onclick="next();" type="button" value="Continue" />
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+
+            <audio id="tone_calib" source="" src="http://mcdermottlab.mit.edu/mturk_stimuli/audio_calibration/HC_tone_lab_calib_inphase.wav" type="audio/mpeg">&nbsp;</audio>
+
+            <audio id="antiphase_HC_2_1" source="" src="http://mcdermottlab.mit.edu/mturk_stimuli/audio_calibration/antiphase_HC_ISO.wav" type="audio/mpeg">&nbsp;</audio>
+
+            <audio id="antiphase_HC_3_1" source="" src="http://mcdermottlab.mit.edu/mturk_stimuli/audio_calibration/antiphase_HC_IOS.wav" type="audio/mpeg">&nbsp;</audio>
+
+            <audio id="antiphase_HC_1_2" source="" src="http://mcdermottlab.mit.edu/mturk_stimuli/audio_calibration/antiphase_HC_SOI.wav" type="audio/mpeg">&nbsp;</audio>
+
+            <audio id="antiphase_HC_1_1" source="" src="http://mcdermottlab.mit.edu/mturk_stimuli/audio_calibration/antiphase_HC_SIO.wav" type="audio/mpeg">&nbsp;</audio>
+
+            <audio id="antiphase_HC_2_2" source="" src="http://mcdermottlab.mit.edu/mturk_stimuli/audio_calibration/antiphase_HC_OSI.wav" type="audio/mpeg">&nbsp;</audio>
+
+            <audio id="antiphase_HC_3_2" source="" src="http://mcdermottlab.mit.edu/mturk_stimuli/audio_calibration/antiphase_HC_OIS.wav" type="audio/mpeg">&nbsp;</audio>
+
+            <div class="wrapper">
+                <div class="page" id="4" style="display: none;">
+                    <div class="cell">
+                        <div align="center">&nbsp;</div>
+
+                        <p>&nbsp;</p>
+
+                        <div class="warning">When you hit &#39;Play&#39;, you will hear three sounds separated by silences.</div>
+
+                        <p>&nbsp;</p>
+
+                        <p>Simply judge WHICH SOUND WAS SOFTEST(quietest)-- 1, 2, or 3?</p>
+
+                        <p>&nbsp;</p>
+
+                        <div class="warning">Test sounds can only be played once!</div>
+
+                        <p>&nbsp;</p>
+
+                        <p><button id="antiphase_HC_b1" onclick="stim_play(HC_but_1); clickDisable('antiphase_HC_b1')" type="button" value="Calibration">Play</button></p>
+
+                        <table border="0" cellpadding="0" cellspacing="4">
+                            <tbody>
+                            <tr>
+                                <td valign="center"><input name="HC1" type="radio" value="1" /></td>
+                                <td><span class="answertext">FIRST sound was SOFTEST</span></td>
+                            </tr>
+                            <tr>
+                                <td valign="center"><input name="HC1" type="radio" value="2" /></td>
+                                <td><span class="answertext">SECOND sound was SOFTEST</span></td>
+                            </tr>
+                            <tr>
+                                <td valign="center"><input name="HC1" type="radio" value="3" /></td>
+                                <td><span class="answertext">THIRD sound was SOFTEST</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <p>&nbsp;</p>
+
+                        <p><button id="antiphase_HC_b2" onclick="stim_play(HC_but_2); clickDisable('antiphase_HC_b2')" type="button" value="Calibration">Play</button></p>
+
+                        <table border="0" cellpadding="0" cellspacing="4">
+                            <tbody>
+                            <tr>
+                                <td valign="center"><input name="HC2" type="radio" value="1" /></td>
+                                <td><span class="answertext">FIRST sound was SOFTEST</span></td>
+                            </tr>
+                            <tr>
+                                <td valign="center"><input name="HC2" type="radio" value="2" /></td>
+                                <td><span class="answertext">SECOND sound was SOFTEST</span></td>
+                            </tr>
+                            <tr>
+                                <td valign="center"><input name="HC2" type="radio" value="3" /></td>
+                                <td><span class="answertext">THIRD sound was SOFTEST</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <p>&nbsp;</p>
+
+                        <p><button id="antiphase_HC_b3" onclick="stim_play(HC_but_3); clickDisable('antiphase_HC_b3')" type="button" value="Calibration">Play</button></p>
+
+                        <table border="0" cellpadding="0" cellspacing="4">
+                            <tbody>
+                            <tr>
+                                <td valign="center"><input name="HC3" type="radio" value="1" /></td>
+                                <td><span class="answertext">FIRST sound was SOFTEST</span></td>
+                            </tr>
+                            <tr>
+                                <td valign="center"><input name="HC3" type="radio" value="2" /></td>
+                                <td><span class="answertext">SECOND sound was SOFTEST</span></td>
+                            </tr>
+                            <tr>
+                                <td valign="center"><input name="HC3" type="radio" value="3" /></td>
+                                <td><span class="answertext">THIRD sound was SOFTEST</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <p>&nbsp;</p>
+
+                        <div class="warning">&#39;Continue&#39;.</div>
+                        <input onclick="ReturnRadio('HC1'); ReturnRadio('HC2'); ReturnRadio('HC3'); next();" type="button" value="Continue" />
+                        <p>&nbsp;</p>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <div class="page" id="5" style="display: none;">
+                        <div class="cell">
+                            <div align="center">&nbsp;</div>
+
+                            <p>&nbsp;</p>
+
+                            <p><button id="antiphase_HC_b4" onclick="stim_play(HC_but_4); clickDisable('antiphase_HC_b4')" type="button" value="Calibration">Play</button></p>
+
+                            <table border="0" cellpadding="0" cellspacing="4">
+                                <tbody>
+                                <tr>
+                                    <td valign="center"><input name="HC4" type="radio" value="1" /></td>
+                                    <td><span class="answertext">FIRST sound was SOFTEST</span></td>
+                                </tr>
+                                <tr>
+                                    <td valign="center"><input name="HC4" type="radio" value="2" /></td>
+                                    <td><span class="answertext">SECOND sound was SOFTEST</span></td>
+                                </tr>
+                                <tr>
+                                    <td valign="center"><input name="HC4" type="radio" value="3" /></td>
+                                    <td><span class="answertext">THIRD sound was SOFTEST</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <p>&nbsp;</p>
+
+                            <p><button id="antiphase_HC_b5" onclick="stim_play(HC_but_5); clickDisable('antiphase_HC_b5')" type="button" value="Calibration">Play</button></p>
+
+                            <table border="0" cellpadding="0" cellspacing="4">
+                                <tbody>
+                                <tr>
+                                    <td valign="center"><input name="HC5" type="radio" value="1" /></td>
+                                    <td><span class="answertext">FIRST sound was SOFTEST</span></td>
+                                </tr>
+                                <tr>
+                                    <td valign="center"><input name="HC5" type="radio" value="2" /></td>
+                                    <td><span class="answertext">SECOND sound was SOFTEST</span></td>
+                                </tr>
+                                <tr>
+                                    <td valign="center"><input name="HC5" type="radio" value="3" /></td>
+                                    <td><span class="answertext">THIRD sound was SOFTEST</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <p>&nbsp;</p>
+
+                            <p><button id="antiphase_HC_b6" onclick="stim_play(HC_but_6); clickDisable('antiphase_HC_b6')" type="button" value="Calibration">Play</button></p>
+
+                            <table border="0" cellpadding="0" cellspacing="4">
+                                <tbody>
+                                <tr>
+                                    <td valign="center"><input name="HC6" type="radio" value="1" /></td>
+                                    <td><span class="answertext">FIRST sound was SOFTEST</span></td>
+                                </tr>
+                                <tr>
+                                    <td valign="center"><input name="HC6" type="radio" value="2" /></td>
+                                    <td><span class="answertext">SECOND sound was SOFTEST</span></td>
+                                </tr>
+                                <tr>
+                                    <td valign="center"><input name="HC6" type="radio" value="3" /></td>
+                                    <td><span class="answertext">THIRD sound was SOFTEST</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <script>
+                                function passfail(div){
+                                    var where = document.getElementById(div);
+                                    var x = document.createElement("input");
+                                    x.setAttribute("type", "hidden");
+                                    x.setAttribute("id", "HC_correct");
+                                    x.setAttribute("name", "HC_correct");
+                                    x.setAttribute("value", HC_corr);
+                                    where.appendChild(x);
+                                    /* Switch these lines of code for testing
+                                     (allows bypassing the screening cutoff threshold */
+                                    //if (HC_corr<5) {endHIT();} //disabled for testing
+                                    if (HC_corr<0) {endHIT();}
+                                    else {endPreScreen();}
+                                }
+                            </script>
+
+                            <p>&nbsp;</p>
+
+                            <div class="warning">Press &#39;Continue&#39; when complete.</div>
+                            <input onclick="ReturnRadio('HC4'); ReturnRadio('HC5'); ReturnRadio('HC6'); passfail('5');" type="button" value="Continue" />
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+
+                    <div class="page" id="19" style="display: none;">
+                        <div class="cell">
+                            <div class="warning">You&#39;ve completed the HIT -- Thanks for your help!</div>
+
+                            <p>&nbsp;</p>
+
+                            <p>&nbsp;</p>
+                            <br />
+                            <input type="submit" value="Submit" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="explainSQs" class="page">
+    <div class="cell">
+    <h3>Speech Quilts</h3>
+        <p>
+            This experiment uses a set of auditory stimuli that we call <b>"Speech Quilts"</b>.
+            We call these Speech Quilts because they are composed of shorter segments of speech, which have been scrambled and "stitched" together.
+            The language and how long the segments are that make up a speech quilt will vary across trials.
+        </p>
+    <h4>Click on the buttons below to get a sense of what the speech quilts sound like</h4>
+
+    <table id = "quiltTable">
+        <thead>
+        <tr>
+            <th scope="col">Segment Lengths</th>
+            <th scope="col">English</th>
+            <th scope="col">Korean</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>30ms</td>
+            <td>
+                <audio id="stim30eng" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/ExampleStimuli/sample_eng_30ms.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                <input onclick="stim_play('stim30eng') " type="button" value="Eng 30ms" />
+            </td>
+            <td>
+                <audio id="stim30kor" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/ExampleStimuli/sample_kor_30ms.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                <input onclick="stim_play('stim30kor') " type="button" value="Kor 30ms" />
+            </td>
+        </tr>
+        <tr>
+            <td>60ms</td>
+            <td>
+                <audio id="stim60eng" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/ExampleStimuli/sample_eng_60ms.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                <input onclick="stim_play('stim60eng') " type="button" value="Eng 60ms" />
+            </td>
+            <td>
+                <audio id="stim60kor" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/ExampleStimuli/sample_kor_60ms.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                <input onclick="stim_play('stim60kor') " type="button" value="Kor 60ms" />
+            </td>
+        </tr>
+        <tr>
+            <td>120ms</td>
+            <td>
+                <audio id="stim120eng" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/ExampleStimuli/sample_eng_120ms.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                <input onclick="stim_play('stim120eng') " type="button" value="Eng 120ms" />
+            </td>
+            <td>
+                <audio id="stim120kor" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/ExampleStimuli/sample_kor_120ms.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                <input onclick="stim_play('stim120kor') " type="button" value="Kor 120ms" />
+            </td>
+        </tr>
+        <tr>
+            <td>240ms</td>
+            <td>
+                <audio id="stim240eng" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/ExampleStimuli/sample_eng_240ms.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                <input onclick="stim_play('stim240eng') " type="button" value="Eng 240ms" />
+            </td>
+            <td>
+                <audio id="stim240kor" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/ExampleStimuli/sample_kor_240ms.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                <input onclick="stim_play('stim240kor') " type="button" value="Kor 240ms" />
+            </td>
+        </tr>
+        <tr>
+            <td>480ms</td>
+            <td>
+                <audio id="stim480eng" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/ExampleStimuli/sample_eng_480ms.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                <input onclick="stim_play('stim480eng') " type="button" value="Eng 480ms" />
+            </td>
+            <td>
+                <audio id="stim480kor" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/ExampleStimuli/sample_kor_480ms.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                <input onclick="stim_play('stim480kor') " type="button" value="Kor 480ms" />
+            </td>
+        </tr>
+        <tr>
+            <td>960ms</td>
+            <td>
+                <audio id="stim960eng" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/ExampleStimuli/sample_eng_960ms.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                <input onclick="stim_play('stim960eng') " type="button" value="Eng 960ms" />
+            </td>
+            <td>
+                <audio id="stim960kor" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/ExampleStimuli/sample_kor_960ms.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                <input onclick="stim_play('stim960kor') " type="button" value="Kor 960ms" />
+            </td>
+        </tr>
+        <tr>
+            <td>1920ms</td>
+            <td>
+                <audio id="stim1920eng" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/ExampleStimuli/sample_eng_1920ms.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                <input onclick="stim_play('stim1920eng') " type="button" value="Eng 1920ms" />
+            </td>
+            <td>
+                <audio id="stim1920kor" source="" src="http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/ExampleStimuli/sample_kor_1920ms.wav" type="audio/mpeg">Your user agent does not support the HTML5 Audio element.</audio>
+                <input onclick="stim_play('stim1920kor') " type="button" value="Kor 1920ms" />
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>
+        The time durations listed on the buttons reflect the length of the speech segments which make up the corresponding speech quilt.
+    </p>
+    <p>
+        You should be able to hear that the segment length increases as you progress down the list.
+    </p>
+    <div class="warning">Press &#39;Continue&#39; to proceed.</div>
+    <input onclick="startPractice();" type="button" value="Continue" />
+    </div>
+</div>
+
+<div id="practiceTrialsPage" class="page">
+    <div class="cell">
+    <div id="practiceInstructions">
+        <h3>Practice Trials</h3>
+        <p>
+            In each trial, you will listen to two 2-second long <b>"Speech Quilts"</b>.
+            These will be just like the examples you heard on the previous page.
+            The language and how long the segments are that make up a speech quilt will vary across trials.
+        </p>
+        <p>
+            Your task is to judge which sound clip is composed of <b>shorter</b> segments.
+            You will do this by selecting either Example 1 or Example 2 by pressing on the corresponding button.
+        </p>
+        <p>
+            You will receive feedback after each trial about whether your response was correct or incorrect.
+            There will be a total of 8 practice trials. The first four should be quite easy, while the following four
+            will be more difficult.
+        </p>
+        <p>
+            If you are ever unsure, just take your best guess and keep going.
+        </p>
+        <p>
+            Let's give it a try!
+        </p>
+    </div>
+
+    <div id="startPracticeButton">
+        <p>
+            <a href="#" id="startPractice">Start Practice</a>
+        </p>
+    </div>
+    </div>
+</div>
+
+<div id="practiceTrialsPage2" class="page">
+    <div class="cell">
+        <div id="practiceInstructions2">
+            <h3>More Practice Trials</h3>
+            <p>
+                Great! Hopefully you're starting to get the hang of this.
+            </p>
+            <p>
+                In the previous practice section, you were making judgements comparing the speech quilts drawn from the
+                the extremes of the spectrum (comparing clips made up of the longest possible segments to those made up
+                of the shortest possible segments).
+            </p>
+            <p>
+                This next practice section should be a little harder.
+                Here, you will compare examples created with segment lengths that are directly next to each other on
+                the spectrum of possible lengths.
+                For example, comparing an example created with 60ms segments vs one created from 120ms segments.
+            </p>
+            <p>
+                This section will be more representative of the actual experiment.
+            </p>
+            <p>
+                Let's go!
+            </p>
+        </div>
+
+        <div id="startPracticeButton2">
+            <p>
+                <a href="#" id="startPractice2">Start Practice</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="practiceTrialsPage3" class="page">
+    <div class="cell">
+        <div id="practiceInstructions3">
+            <h3>More Practice Trials</h3>
+            <p>
+                Whoops! It looks like you had some trouble with that section.
+            </p>
+            <p>
+                Let's try that again.
+            </p>
+        </div>
+
+        <div id="startPracticeButton3">
+            <p>
+                <a href="#" id="startPractice3">Start Practice</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="startExpPage">
+    <div id="instructions">
+        <h3>You are about to begin the main experiment.</h3>
+        <p>
+            The following trials will be similar to the practice trials you've just completed.
+            The first trial will start as soon as you hit the start button below.
+        </p>
+        <p>
+            In each trial, you will be presented with two speech quilts, and your job will be to determine which one
+            was made up of shorter segments.
+            You will make your selection by pressing on the corresponding example button just as you did in the
+            practice section.
+            The experiment will then proceed on to the next trial.
+            You will not receive feedback during this section.
+        </p>
+        <p>
+            There will be a progress bar at the top of the screen to track your progression.
+        </p>
+        <p>
+            Please know that we hope to use this data to further our understanding of how the human brain processes and understands speech, so it
+            is imperative that you stay focused and do your best with the task.
+        </p>
+        <p>
+            Thanks and good luck!
+        </p>
+    </div>
+
+    <div id="startExperimentButton">
+        <p>
+            <a href="#" id="startExperiment">Start Experiment</a>
+        </p>
+    </div>
+</div>
+
+<div class="progFrame">
+    <div id="progTitleCont">
+        <h4>Progress:</h4>
+    </div>
+    <div id="progContainer">
+        <div id="myProgress">
+            <div id="myBar"></div>
+        </div>
+    </div>
+</div>
+
+<div id="brokenButton" class="listeningDisplay">
+    <p class="trialQ_fake">Which example was composed of <b>shorter</b> segments?</p>
+    <div class="responseButtons">
+        <input type="button" class="rb1_fake" id="rb1_fake" name="question1" value="Example 1">
+        <input type="button" class="rb2_fake" id="rb2_fake" name="question1" value="Example 2">
+    </div>
+</div>
+
+<div id="practiceFeedback">
+    <div id="correctFeed">
+        <h1 class="trialQ">Correct!</h1>
+        <div class="responseButtons">
+            <input type="button" class="nextPractice" value="Next Practice Trial" onclick="showPracticeTrial()">
+        </div>
+    </div>
+
+    <div id="incorrectFeed">
+        <h1 class="trialQ">Incorrect!</h1>
+        <div class="responseButtons">
+            <input type="button" class="nextPractice" value="Next Practice Trial" onclick="showPracticeTrial()">
+        </div>
+    </div>
+</div>
+
+<div id = "practiceTrials">
+    <div id="practice1" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1p" name="pract1" value="Example 1" onclick="practiceFeedback(this)">
+            <input type="button" class="rb2p" name="pract1" value="Example 2" onclick="practiceFeedback(this)">
+        </div>
+    </div>
+
+    <div id="practice2" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1p" name="pract2" value="Example 1" onclick="practiceFeedback(this)">
+            <input type="button" class="rb2p" name="pract2" value="Example 2" onclick="practiceFeedback(this)">
+        </div>
+    </div>
+
+    <div id="practice3" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1p" name="pract3" value="Example 1" onclick="practiceFeedback(this)">
+            <input type="button" class="rb2p" name="pract3" value="Example 2" onclick="practiceFeedback(this)">
+        </div>
+    </div>
+
+    <div id="practice4" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1p" name="pract4" value="Example 1" onclick="practiceFeedback(this)">
+            <input type="button" class="rb2p" name="pract4" value="Example 2" onclick="practiceFeedback(this)">
+        </div>
+    </div>
+
+    <div id="practice5" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1p" name="pract5" value="Example 1" onclick="practiceFeedback(this)">
+            <input type="button" class="rb2p" name="pract5" value="Example 2" onclick="practiceFeedback(this)">
+        </div>
+    </div>
+
+    <div id="practice6" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1p" name="pract6" value="Example 1" onclick="practiceFeedback(this)">
+            <input type="button" class="rb2p" name="pract6" value="Example 2" onclick="practiceFeedback(this)">
+        </div>
+    </div>
+
+    <div id="practice7" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1p" name="pract7" value="Example 1" onclick="practiceFeedback(this)">
+            <input type="button" class="rb2p" name="pract7" value="Example 2" onclick="practiceFeedback(this)">
+        </div>
+    </div>
+
+    <div id="practice8" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1p" name="pract8" value="Example 1" onclick="practiceFeedback(this)">
+            <input type="button" class="rb2p" name="pract8" value="Example 2" onclick="practiceFeedback(this)">
+        </div>
+    </div>
+</div>
+
+<!-- Long list of Trials Here !-->
+<div id = "allTrials">
+    <div id="trial001" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question001" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question001" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question001Response" value="0" id="response001">
+        <input type="hidden" name="question001RT" value="0" id="reactionTime001">
+        <input type="hidden" name="question001Lang" value="0" id="lang001">
+        <input type="hidden" name="question001Exemps" value="0" id="exemp001">
+        <input type="hidden" name="question001WithinOrder" value="0" id="withinOrder001">
+    </div>
+
+    <div id="trial002" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question002" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question002" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question002Response" value="0" id="response002">
+        <input type="hidden" name="question002RT" value="0" id="reactionTime002">
+        <input type="hidden" name="question002Lang" value="0" id="lang002">
+        <input type="hidden" name="question002Exemps" value="0" id="exemp002">
+        <input type="hidden" name="question002WithinOrder" value="0" id="withinOrder002">
+    </div>
+
+    <div id="trial003" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question003" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question003" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question003Response" value="0" id="response003">
+        <input type="hidden" name="question003RT" value="0" id="reactionTime003">
+        <input type="hidden" name="question003Lang" value="0" id="lang003">
+        <input type="hidden" name="question003Exemps" value="0" id="exemp003">
+        <input type="hidden" name="question003WithinOrder" value="0" id="withinOrder003">
+    </div>
+
+    <div id="trial004" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question004" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question004" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question004Response" value="0" id="response004">
+        <input type="hidden" name="question004RT" value="0" id="reactionTime004">
+        <input type="hidden" name="question004Lang" value="0" id="lang004">
+        <input type="hidden" name="question004Exemps" value="0" id="exemp004">
+        <input type="hidden" name="question004WithinOrder" value="0" id="withinOrder004">
+    </div>
+
+    <div id="trial005" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question005" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question005" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question005Response" value="0" id="response005">
+        <input type="hidden" name="question005RT" value="0" id="reactionTime005">
+        <input type="hidden" name="question005Lang" value="0" id="lang005">
+        <input type="hidden" name="question005Exemps" value="0" id="exemp005">
+        <input type="hidden" name="question005WithinOrder" value="0" id="withinOrder005">
+    </div>
+
+    <div id="trial006" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question006" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question006" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question006Response" value="0" id="response006">
+        <input type="hidden" name="question006RT" value="0" id="reactionTime006">
+        <input type="hidden" name="question006Lang" value="0" id="lang006">
+        <input type="hidden" name="question006Exemps" value="0" id="exemp006">
+        <input type="hidden" name="question006WithinOrder" value="0" id="withinOrder006">
+    </div>
+
+    <div id="trial007" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question007" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question007" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question007Response" value="0" id="response007">
+        <input type="hidden" name="question007RT" value="0" id="reactionTime007">
+        <input type="hidden" name="question007Lang" value="0" id="lang007">
+        <input type="hidden" name="question007Exemps" value="0" id="exemp007">
+        <input type="hidden" name="question007WithinOrder" value="0" id="withinOrder007">
+    </div>
+
+    <div id="trial008" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question008" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question008" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question008Response" value="0" id="response008">
+        <input type="hidden" name="question008RT" value="0" id="reactionTime008">
+        <input type="hidden" name="question008Lang" value="0" id="lang008">
+        <input type="hidden" name="question008Exemps" value="0" id="exemp008">
+        <input type="hidden" name="question008WithinOrder" value="0" id="withinOrder008">
+    </div>
+
+    <div id="trial009" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question009" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question009" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question009Response" value="0" id="response009">
+        <input type="hidden" name="question009RT" value="0" id="reactionTime009">
+        <input type="hidden" name="question009Lang" value="0" id="lang009">
+        <input type="hidden" name="question009Exemps" value="0" id="exemp009">
+        <input type="hidden" name="question009WithinOrder" value="0" id="withinOrder009">
+    </div>
+
+    <div id="trial010" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question010" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question010" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question010Response" value="0" id="response010">
+        <input type="hidden" name="question010RT" value="0" id="reactionTime010">
+        <input type="hidden" name="question010Lang" value="0" id="lang010">
+        <input type="hidden" name="question010Exemps" value="0" id="exemp010">
+        <input type="hidden" name="question010WithinOrder" value="0" id="withinOrder010">
+    </div>
+
+    <div id="trial011" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question011" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question011" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question011Response" value="0" id="response011">
+        <input type="hidden" name="question011RT" value="0" id="reactionTime011">
+        <input type="hidden" name="question011Lang" value="0" id="lang011">
+        <input type="hidden" name="question011Exemps" value="0" id="exemp011">
+        <input type="hidden" name="question011WithinOrder" value="0" id="withinOrder011">
+    </div>
+
+    <div id="trial012" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question012" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question012" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question012Response" value="0" id="response012">
+        <input type="hidden" name="question012RT" value="0" id="reactionTime012">
+        <input type="hidden" name="question012Lang" value="0" id="lang012">
+        <input type="hidden" name="question012Exemps" value="0" id="exemp012">
+        <input type="hidden" name="question012WithinOrder" value="0" id="withinOrder012">
+    </div>
+
+    <div id="trial013" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question013" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question013" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question013Response" value="0" id="response013">
+        <input type="hidden" name="question013RT" value="0" id="reactionTime013">
+        <input type="hidden" name="question013Lang" value="0" id="lang013">
+        <input type="hidden" name="question013Exemps" value="0" id="exemp013">
+        <input type="hidden" name="question013WithinOrder" value="0" id="withinOrder013">
+    </div>
+
+    <div id="trial014" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question014" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question014" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question014Response" value="0" id="response014">
+        <input type="hidden" name="question014RT" value="0" id="reactionTime014">
+        <input type="hidden" name="question014Lang" value="0" id="lang014">
+        <input type="hidden" name="question014Exemps" value="0" id="exemp014">
+        <input type="hidden" name="question014WithinOrder" value="0" id="withinOrder014">
+    </div>
+
+    <div id="trial015" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question015" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question015" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question015Response" value="0" id="response015">
+        <input type="hidden" name="question015RT" value="0" id="reactionTime015">
+        <input type="hidden" name="question015Lang" value="0" id="lang015">
+        <input type="hidden" name="question015Exemps" value="0" id="exemp015">
+        <input type="hidden" name="question015WithinOrder" value="0" id="withinOrder015">
+    </div>
+
+    <div id="trial016" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question016" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question016" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question016Response" value="0" id="response016">
+        <input type="hidden" name="question016RT" value="0" id="reactionTime016">
+        <input type="hidden" name="question016Lang" value="0" id="lang016">
+        <input type="hidden" name="question016Exemps" value="0" id="exemp016">
+        <input type="hidden" name="question016WithinOrder" value="0" id="withinOrder016">
+    </div>
+
+    <div id="trial017" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question017" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question017" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question017Response" value="0" id="response017">
+        <input type="hidden" name="question017RT" value="0" id="reactionTime017">
+        <input type="hidden" name="question017Lang" value="0" id="lang017">
+        <input type="hidden" name="question017Exemps" value="0" id="exemp017">
+        <input type="hidden" name="question017WithinOrder" value="0" id="withinOrder017">
+    </div>
+
+    <div id="trial018" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question018" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question018" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question018Response" value="0" id="response018">
+        <input type="hidden" name="question018RT" value="0" id="reactionTime018">
+        <input type="hidden" name="question018Lang" value="0" id="lang018">
+        <input type="hidden" name="question018Exemps" value="0" id="exemp018">
+        <input type="hidden" name="question018WithinOrder" value="0" id="withinOrder018">
+    </div>
+
+    <div id="trial019" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question019" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question019" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question019Response" value="0" id="response019">
+        <input type="hidden" name="question019RT" value="0" id="reactionTime019">
+        <input type="hidden" name="question019Lang" value="0" id="lang019">
+        <input type="hidden" name="question019Exemps" value="0" id="exemp019">
+        <input type="hidden" name="question019WithinOrder" value="0" id="withinOrder019">
+    </div>
+
+    <div id="trial020" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question020" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question020" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question020Response" value="0" id="response020">
+        <input type="hidden" name="question020RT" value="0" id="reactionTime020">
+        <input type="hidden" name="question020Lang" value="0" id="lang020">
+        <input type="hidden" name="question020Exemps" value="0" id="exemp020">
+        <input type="hidden" name="question020WithinOrder" value="0" id="withinOrder020">
+    </div>
+
+    <div id="trial021" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question021" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question021" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question021Response" value="0" id="response021">
+        <input type="hidden" name="question021RT" value="0" id="reactionTime021">
+        <input type="hidden" name="question021Lang" value="0" id="lang021">
+        <input type="hidden" name="question021Exemps" value="0" id="exemp021">
+        <input type="hidden" name="question021WithinOrder" value="0" id="withinOrder021">
+    </div>
+
+    <div id="trial022" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question022" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question022" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question022Response" value="0" id="response022">
+        <input type="hidden" name="question022RT" value="0" id="reactionTime022">
+        <input type="hidden" name="question022Lang" value="0" id="lang022">
+        <input type="hidden" name="question022Exemps" value="0" id="exemp022">
+        <input type="hidden" name="question022WithinOrder" value="0" id="withinOrder022">
+    </div>
+
+    <div id="trial023" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question023" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question023" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question023Response" value="0" id="response023">
+        <input type="hidden" name="question023RT" value="0" id="reactionTime023">
+        <input type="hidden" name="question023Lang" value="0" id="lang023">
+        <input type="hidden" name="question023Exemps" value="0" id="exemp023">
+        <input type="hidden" name="question023WithinOrder" value="0" id="withinOrder023">
+    </div>
+
+    <div id="trial024" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question024" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question024" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question024Response" value="0" id="response024">
+        <input type="hidden" name="question024RT" value="0" id="reactionTime024">
+        <input type="hidden" name="question024Lang" value="0" id="lang024">
+        <input type="hidden" name="question024Exemps" value="0" id="exemp024">
+        <input type="hidden" name="question024WithinOrder" value="0" id="withinOrder024">
+    </div>
+
+    <div id="trial025" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question025" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question025" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question025Response" value="0" id="response025">
+        <input type="hidden" name="question025RT" value="0" id="reactionTime025">
+        <input type="hidden" name="question025Lang" value="0" id="lang025">
+        <input type="hidden" name="question025Exemps" value="0" id="exemp025">
+        <input type="hidden" name="question025WithinOrder" value="0" id="withinOrder025">
+    </div>
+
+    <div id="trial026" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question026" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question026" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question026Response" value="0" id="response026">
+        <input type="hidden" name="question026RT" value="0" id="reactionTime026">
+        <input type="hidden" name="question026Lang" value="0" id="lang026">
+        <input type="hidden" name="question026Exemps" value="0" id="exemp026">
+        <input type="hidden" name="question026WithinOrder" value="0" id="withinOrder026">
+    </div>
+
+    <div id="trial027" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question027" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question027" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question027Response" value="0" id="response027">
+        <input type="hidden" name="question027RT" value="0" id="reactionTime027">
+        <input type="hidden" name="question027Lang" value="0" id="lang027">
+        <input type="hidden" name="question027Exemps" value="0" id="exemp027">
+        <input type="hidden" name="question027WithinOrder" value="0" id="withinOrder027">
+    </div>
+
+    <div id="trial028" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question028" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question028" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question028Response" value="0" id="response028">
+        <input type="hidden" name="question028RT" value="0" id="reactionTime028">
+        <input type="hidden" name="question028Lang" value="0" id="lang028">
+        <input type="hidden" name="question028Exemps" value="0" id="exemp028">
+        <input type="hidden" name="question028WithinOrder" value="0" id="withinOrder028">
+    </div>
+
+    <div id="trial029" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question029" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question029" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question029Response" value="0" id="response029">
+        <input type="hidden" name="question029RT" value="0" id="reactionTime029">
+        <input type="hidden" name="question029Lang" value="0" id="lang029">
+        <input type="hidden" name="question029Exemps" value="0" id="exemp029">
+        <input type="hidden" name="question029WithinOrder" value="0" id="withinOrder029">
+    </div>
+
+    <div id="trial030" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question030" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question030" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question030Response" value="0" id="response030">
+        <input type="hidden" name="question030RT" value="0" id="reactionTime030">
+        <input type="hidden" name="question030Lang" value="0" id="lang030">
+        <input type="hidden" name="question030Exemps" value="0" id="exemp030">
+        <input type="hidden" name="question030WithinOrder" value="0" id="withinOrder030">
+    </div>
+
+    <div id="trial031" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question031" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question031" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question031Response" value="0" id="response031">
+        <input type="hidden" name="question031RT" value="0" id="reactionTime031">
+        <input type="hidden" name="question031Lang" value="0" id="lang031">
+        <input type="hidden" name="question031Exemps" value="0" id="exemp031">
+        <input type="hidden" name="question031WithinOrder" value="0" id="withinOrder031">
+    </div>
+
+    <div id="trial032" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question032" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question032" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question032Response" value="0" id="response032">
+        <input type="hidden" name="question032RT" value="0" id="reactionTime032">
+        <input type="hidden" name="question032Lang" value="0" id="lang032">
+        <input type="hidden" name="question032Exemps" value="0" id="exemp032">
+        <input type="hidden" name="question032WithinOrder" value="0" id="withinOrder032">
+    </div>
+
+    <div id="trial033" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question033" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question033" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question033Response" value="0" id="response033">
+        <input type="hidden" name="question033RT" value="0" id="reactionTime033">
+        <input type="hidden" name="question033Lang" value="0" id="lang033">
+        <input type="hidden" name="question033Exemps" value="0" id="exemp033">
+        <input type="hidden" name="question033WithinOrder" value="0" id="withinOrder033">
+    </div>
+
+    <div id="trial034" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question034" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question034" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question034Response" value="0" id="response034">
+        <input type="hidden" name="question034RT" value="0" id="reactionTime034">
+        <input type="hidden" name="question034Lang" value="0" id="lang034">
+        <input type="hidden" name="question034Exemps" value="0" id="exemp034">
+        <input type="hidden" name="question034WithinOrder" value="0" id="withinOrder034">
+    </div>
+
+    <div id="trial035" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question035" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question035" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question035Response" value="0" id="response035">
+        <input type="hidden" name="question035RT" value="0" id="reactionTime035">
+        <input type="hidden" name="question035Lang" value="0" id="lang035">
+        <input type="hidden" name="question035Exemps" value="0" id="exemp035">
+        <input type="hidden" name="question035WithinOrder" value="0" id="withinOrder035">
+    </div>
+
+    <div id="trial036" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question036" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question036" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question036Response" value="0" id="response036">
+        <input type="hidden" name="question036RT" value="0" id="reactionTime036">
+        <input type="hidden" name="question036Lang" value="0" id="lang036">
+        <input type="hidden" name="question036Exemps" value="0" id="exemp036">
+        <input type="hidden" name="question036WithinOrder" value="0" id="withinOrder036">
+    </div>
+
+    <div id="trial037" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question037" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question037" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question037Response" value="0" id="response037">
+        <input type="hidden" name="question037RT" value="0" id="reactionTime037">
+        <input type="hidden" name="question037Lang" value="0" id="lang037">
+        <input type="hidden" name="question037Exemps" value="0" id="exemp037">
+        <input type="hidden" name="question037WithinOrder" value="0" id="withinOrder037">
+    </div>
+
+    <div id="trial038" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question038" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question038" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question038Response" value="0" id="response038">
+        <input type="hidden" name="question038RT" value="0" id="reactionTime038">
+        <input type="hidden" name="question038Lang" value="0" id="lang038">
+        <input type="hidden" name="question038Exemps" value="0" id="exemp038">
+        <input type="hidden" name="question038WithinOrder" value="0" id="withinOrder038">
+    </div>
+
+    <div id="trial039" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question039" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question039" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question039Response" value="0" id="response039">
+        <input type="hidden" name="question039RT" value="0" id="reactionTime039">
+        <input type="hidden" name="question039Lang" value="0" id="lang039">
+        <input type="hidden" name="question039Exemps" value="0" id="exemp039">
+        <input type="hidden" name="question039WithinOrder" value="0" id="withinOrder039">
+    </div>
+
+    <div id="trial040" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question040" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question040" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question040Response" value="0" id="response040">
+        <input type="hidden" name="question040RT" value="0" id="reactionTime040">
+        <input type="hidden" name="question040Lang" value="0" id="lang040">
+        <input type="hidden" name="question040Exemps" value="0" id="exemp040">
+        <input type="hidden" name="question040WithinOrder" value="0" id="withinOrder040">
+    </div>
+
+    <div id="trial041" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question041" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question041" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question041Response" value="0" id="response041">
+        <input type="hidden" name="question041RT" value="0" id="reactionTime041">
+        <input type="hidden" name="question041Lang" value="0" id="lang041">
+        <input type="hidden" name="question041Exemps" value="0" id="exemp041">
+        <input type="hidden" name="question041WithinOrder" value="0" id="withinOrder041">
+    </div>
+
+    <div id="trial042" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question042" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question042" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question042Response" value="0" id="response042">
+        <input type="hidden" name="question042RT" value="0" id="reactionTime042">
+        <input type="hidden" name="question042Lang" value="0" id="lang042">
+        <input type="hidden" name="question042Exemps" value="0" id="exemp042">
+        <input type="hidden" name="question042WithinOrder" value="0" id="withinOrder042">
+    </div>
+
+    <div id="trial043" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question043" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question043" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question043Response" value="0" id="response043">
+        <input type="hidden" name="question043RT" value="0" id="reactionTime043">
+        <input type="hidden" name="question043Lang" value="0" id="lang043">
+        <input type="hidden" name="question043Exemps" value="0" id="exemp043">
+        <input type="hidden" name="question043WithinOrder" value="0" id="withinOrder043">
+    </div>
+
+    <div id="trial044" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question044" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question044" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question044Response" value="0" id="response044">
+        <input type="hidden" name="question044RT" value="0" id="reactionTime044">
+        <input type="hidden" name="question044Lang" value="0" id="lang044">
+        <input type="hidden" name="question044Exemps" value="0" id="exemp044">
+        <input type="hidden" name="question044WithinOrder" value="0" id="withinOrder044">
+    </div>
+
+    <div id="trial045" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question045" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question045" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question045Response" value="0" id="response045">
+        <input type="hidden" name="question045RT" value="0" id="reactionTime045">
+        <input type="hidden" name="question045Lang" value="0" id="lang045">
+        <input type="hidden" name="question045Exemps" value="0" id="exemp045">
+        <input type="hidden" name="question045WithinOrder" value="0" id="withinOrder045">
+    </div>
+
+    <div id="trial046" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question046" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question046" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question046Response" value="0" id="response046">
+        <input type="hidden" name="question046RT" value="0" id="reactionTime046">
+        <input type="hidden" name="question046Lang" value="0" id="lang046">
+        <input type="hidden" name="question046Exemps" value="0" id="exemp046">
+        <input type="hidden" name="question046WithinOrder" value="0" id="withinOrder046">
+    </div>
+
+    <div id="trial047" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question047" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question047" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question047Response" value="0" id="response047">
+        <input type="hidden" name="question047RT" value="0" id="reactionTime047">
+        <input type="hidden" name="question047Lang" value="0" id="lang047">
+        <input type="hidden" name="question047Exemps" value="0" id="exemp047">
+        <input type="hidden" name="question047WithinOrder" value="0" id="withinOrder047">
+    </div>
+
+    <div id="trial048" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question048" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question048" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question048Response" value="0" id="response048">
+        <input type="hidden" name="question048RT" value="0" id="reactionTime048">
+        <input type="hidden" name="question048Lang" value="0" id="lang048">
+        <input type="hidden" name="question048Exemps" value="0" id="exemp048">
+        <input type="hidden" name="question048WithinOrder" value="0" id="withinOrder048">
+    </div>
+
+    <div id="trial049" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question049" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question049" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question049Response" value="0" id="response049">
+        <input type="hidden" name="question049RT" value="0" id="reactionTime049">
+        <input type="hidden" name="question049Lang" value="0" id="lang049">
+        <input type="hidden" name="question049Exemps" value="0" id="exemp049">
+        <input type="hidden" name="question049WithinOrder" value="0" id="withinOrder049">
+    </div>
+
+    <div id="trial050" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question050" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question050" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question050Response" value="0" id="response050">
+        <input type="hidden" name="question050RT" value="0" id="reactionTime050">
+        <input type="hidden" name="question050Lang" value="0" id="lang050">
+        <input type="hidden" name="question050Exemps" value="0" id="exemp050">
+        <input type="hidden" name="question050WithinOrder" value="0" id="withinOrder050">
+    </div>
+
+    <div id="trial051" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question051" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question051" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question051Response" value="0" id="response051">
+        <input type="hidden" name="question051RT" value="0" id="reactionTime051">
+        <input type="hidden" name="question051Lang" value="0" id="lang051">
+        <input type="hidden" name="question051Exemps" value="0" id="exemp051">
+        <input type="hidden" name="question051WithinOrder" value="0" id="withinOrder051">
+    </div>
+
+    <div id="trial052" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question052" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question052" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question052Response" value="0" id="response052">
+        <input type="hidden" name="question052RT" value="0" id="reactionTime052">
+        <input type="hidden" name="question052Lang" value="0" id="lang052">
+        <input type="hidden" name="question052Exemps" value="0" id="exemp052">
+        <input type="hidden" name="question052WithinOrder" value="0" id="withinOrder052">
+    </div>
+
+    <div id="trial053" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question053" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question053" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question053Response" value="0" id="response053">
+        <input type="hidden" name="question053RT" value="0" id="reactionTime053">
+        <input type="hidden" name="question053Lang" value="0" id="lang053">
+        <input type="hidden" name="question053Exemps" value="0" id="exemp053">
+        <input type="hidden" name="question053WithinOrder" value="0" id="withinOrder053">
+    </div>
+
+    <div id="trial054" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question054" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question054" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question054Response" value="0" id="response054">
+        <input type="hidden" name="question054RT" value="0" id="reactionTime054">
+        <input type="hidden" name="question054Lang" value="0" id="lang054">
+        <input type="hidden" name="question054Exemps" value="0" id="exemp054">
+        <input type="hidden" name="question054WithinOrder" value="0" id="withinOrder054">
+    </div>
+
+    <div id="trial055" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question055" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question055" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question055Response" value="0" id="response055">
+        <input type="hidden" name="question055RT" value="0" id="reactionTime055">
+        <input type="hidden" name="question055Lang" value="0" id="lang055">
+        <input type="hidden" name="question055Exemps" value="0" id="exemp055">
+        <input type="hidden" name="question055WithinOrder" value="0" id="withinOrder055">
+    </div>
+
+    <div id="trial056" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question056" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question056" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question056Response" value="0" id="response056">
+        <input type="hidden" name="question056RT" value="0" id="reactionTime056">
+        <input type="hidden" name="question056Lang" value="0" id="lang056">
+        <input type="hidden" name="question056Exemps" value="0" id="exemp056">
+        <input type="hidden" name="question056WithinOrder" value="0" id="withinOrder056">
+    </div>
+
+    <div id="trial057" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question057" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question057" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question057Response" value="0" id="response057">
+        <input type="hidden" name="question057RT" value="0" id="reactionTime057">
+        <input type="hidden" name="question057Lang" value="0" id="lang057">
+        <input type="hidden" name="question057Exemps" value="0" id="exemp057">
+        <input type="hidden" name="question057WithinOrder" value="0" id="withinOrder057">
+    </div>
+
+    <div id="trial058" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question058" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question058" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question058Response" value="0" id="response058">
+        <input type="hidden" name="question058RT" value="0" id="reactionTime058">
+        <input type="hidden" name="question058Lang" value="0" id="lang058">
+        <input type="hidden" name="question058Exemps" value="0" id="exemp058">
+        <input type="hidden" name="question058WithinOrder" value="0" id="withinOrder058">
+    </div>
+
+    <div id="trial059" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question059" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question059" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question059Response" value="0" id="response059">
+        <input type="hidden" name="question059RT" value="0" id="reactionTime059">
+        <input type="hidden" name="question059Lang" value="0" id="lang059">
+        <input type="hidden" name="question059Exemps" value="0" id="exemp059">
+        <input type="hidden" name="question059WithinOrder" value="0" id="withinOrder059">
+    </div>
+
+    <div id="trial060" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question060" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question060" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question060Response" value="0" id="response060">
+        <input type="hidden" name="question060RT" value="0" id="reactionTime060">
+        <input type="hidden" name="question060Lang" value="0" id="lang060">
+        <input type="hidden" name="question060Exemps" value="0" id="exemp060">
+        <input type="hidden" name="question060WithinOrder" value="0" id="withinOrder060">
+    </div>
+
+    <div id="trial061" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question061" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question061" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question061Response" value="0" id="response061">
+        <input type="hidden" name="question061RT" value="0" id="reactionTime061">
+        <input type="hidden" name="question061Lang" value="0" id="lang061">
+        <input type="hidden" name="question061Exemps" value="0" id="exemp061">
+        <input type="hidden" name="question061WithinOrder" value="0" id="withinOrder061">
+    </div>
+
+    <div id="trial062" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question062" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question062" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question062Response" value="0" id="response062">
+        <input type="hidden" name="question062RT" value="0" id="reactionTime062">
+        <input type="hidden" name="question062Lang" value="0" id="lang062">
+        <input type="hidden" name="question062Exemps" value="0" id="exemp062">
+        <input type="hidden" name="question062WithinOrder" value="0" id="withinOrder062">
+    </div>
+
+    <div id="trial063" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question063" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question063" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question063Response" value="0" id="response063">
+        <input type="hidden" name="question063RT" value="0" id="reactionTime063">
+        <input type="hidden" name="question063Lang" value="0" id="lang063">
+        <input type="hidden" name="question063Exemps" value="0" id="exemp063">
+        <input type="hidden" name="question063WithinOrder" value="0" id="withinOrder063">
+    </div>
+
+    <div id="trial064" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question064" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question064" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question064Response" value="0" id="response064">
+        <input type="hidden" name="question064RT" value="0" id="reactionTime064">
+        <input type="hidden" name="question064Lang" value="0" id="lang064">
+        <input type="hidden" name="question064Exemps" value="0" id="exemp064">
+        <input type="hidden" name="question064WithinOrder" value="0" id="withinOrder064">
+    </div>
+
+    <div id="trial065" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question065" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question065" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question065Response" value="0" id="response065">
+        <input type="hidden" name="question065RT" value="0" id="reactionTime065">
+        <input type="hidden" name="question065Lang" value="0" id="lang065">
+        <input type="hidden" name="question065Exemps" value="0" id="exemp065">
+        <input type="hidden" name="question065WithinOrder" value="0" id="withinOrder065">
+    </div>
+
+    <div id="trial066" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question066" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question066" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question066Response" value="0" id="response066">
+        <input type="hidden" name="question066RT" value="0" id="reactionTime066">
+        <input type="hidden" name="question066Lang" value="0" id="lang066">
+        <input type="hidden" name="question066Exemps" value="0" id="exemp066">
+        <input type="hidden" name="question066WithinOrder" value="0" id="withinOrder066">
+    </div>
+
+    <div id="trial067" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question067" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question067" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question067Response" value="0" id="response067">
+        <input type="hidden" name="question067RT" value="0" id="reactionTime067">
+        <input type="hidden" name="question067Lang" value="0" id="lang067">
+        <input type="hidden" name="question067Exemps" value="0" id="exemp067">
+        <input type="hidden" name="question067WithinOrder" value="0" id="withinOrder067">
+    </div>
+
+    <div id="trial068" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question068" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question068" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question068Response" value="0" id="response068">
+        <input type="hidden" name="question068RT" value="0" id="reactionTime068">
+        <input type="hidden" name="question068Lang" value="0" id="lang068">
+        <input type="hidden" name="question068Exemps" value="0" id="exemp068">
+        <input type="hidden" name="question068WithinOrder" value="0" id="withinOrder068">
+    </div>
+
+    <div id="trial069" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question069" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question069" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question069Response" value="0" id="response069">
+        <input type="hidden" name="question069RT" value="0" id="reactionTime069">
+        <input type="hidden" name="question069Lang" value="0" id="lang069">
+        <input type="hidden" name="question069Exemps" value="0" id="exemp069">
+        <input type="hidden" name="question069WithinOrder" value="0" id="withinOrder069">
+    </div>
+
+    <div id="trial070" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question070" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question070" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question070Response" value="0" id="response070">
+        <input type="hidden" name="question070RT" value="0" id="reactionTime070">
+        <input type="hidden" name="question070Lang" value="0" id="lang070">
+        <input type="hidden" name="question070Exemps" value="0" id="exemp070">
+        <input type="hidden" name="question070WithinOrder" value="0" id="withinOrder070">
+    </div>
+
+    <div id="trial071" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question071" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question071" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question071Response" value="0" id="response071">
+        <input type="hidden" name="question071RT" value="0" id="reactionTime071">
+        <input type="hidden" name="question071Lang" value="0" id="lang071">
+        <input type="hidden" name="question071Exemps" value="0" id="exemp071">
+        <input type="hidden" name="question071WithinOrder" value="0" id="withinOrder071">
+    </div>
+
+    <div id="trial072" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question072" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question072" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question072Response" value="0" id="response072">
+        <input type="hidden" name="question072RT" value="0" id="reactionTime072">
+        <input type="hidden" name="question072Lang" value="0" id="lang072">
+        <input type="hidden" name="question072Exemps" value="0" id="exemp072">
+        <input type="hidden" name="question072WithinOrder" value="0" id="withinOrder072">
+    </div>
+
+    <div id="trial073" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question073" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question073" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question073Response" value="0" id="response073">
+        <input type="hidden" name="question073RT" value="0" id="reactionTime073">
+        <input type="hidden" name="question073Lang" value="0" id="lang073">
+        <input type="hidden" name="question073Exemps" value="0" id="exemp073">
+        <input type="hidden" name="question073WithinOrder" value="0" id="withinOrder073">
+    </div>
+
+    <div id="trial074" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question074" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question074" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question074Response" value="0" id="response074">
+        <input type="hidden" name="question074RT" value="0" id="reactionTime074">
+        <input type="hidden" name="question074Lang" value="0" id="lang074">
+        <input type="hidden" name="question074Exemps" value="0" id="exemp074">
+        <input type="hidden" name="question074WithinOrder" value="0" id="withinOrder074">
+    </div>
+
+    <div id="trial075" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question075" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question075" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question075Response" value="0" id="response075">
+        <input type="hidden" name="question075RT" value="0" id="reactionTime075">
+        <input type="hidden" name="question075Lang" value="0" id="lang075">
+        <input type="hidden" name="question075Exemps" value="0" id="exemp075">
+        <input type="hidden" name="question075WithinOrder" value="0" id="withinOrder075">
+    </div>
+
+    <div id="trial076" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question076" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question076" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question076Response" value="0" id="response076">
+        <input type="hidden" name="question076RT" value="0" id="reactionTime076">
+        <input type="hidden" name="question076Lang" value="0" id="lang076">
+        <input type="hidden" name="question076Exemps" value="0" id="exemp076">
+        <input type="hidden" name="question076WithinOrder" value="0" id="withinOrder076">
+    </div>
+
+    <div id="trial077" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question077" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question077" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question077Response" value="0" id="response077">
+        <input type="hidden" name="question077RT" value="0" id="reactionTime077">
+        <input type="hidden" name="question077Lang" value="0" id="lang077">
+        <input type="hidden" name="question077Exemps" value="0" id="exemp077">
+        <input type="hidden" name="question077WithinOrder" value="0" id="withinOrder077">
+    </div>
+
+    <div id="trial078" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question078" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question078" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question078Response" value="0" id="response078">
+        <input type="hidden" name="question078RT" value="0" id="reactionTime078">
+        <input type="hidden" name="question078Lang" value="0" id="lang078">
+        <input type="hidden" name="question078Exemps" value="0" id="exemp078">
+        <input type="hidden" name="question078WithinOrder" value="0" id="withinOrder078">
+    </div>
+
+    <div id="trial079" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question079" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question079" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question079Response" value="0" id="response079">
+        <input type="hidden" name="question079RT" value="0" id="reactionTime079">
+        <input type="hidden" name="question079Lang" value="0" id="lang079">
+        <input type="hidden" name="question079Exemps" value="0" id="exemp079">
+        <input type="hidden" name="question079WithinOrder" value="0" id="withinOrder079">
+    </div>
+
+    <div id="trial080" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question080" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question080" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question080Response" value="0" id="response080">
+        <input type="hidden" name="question080RT" value="0" id="reactionTime080">
+        <input type="hidden" name="question080Lang" value="0" id="lang080">
+        <input type="hidden" name="question080Exemps" value="0" id="exemp080">
+        <input type="hidden" name="question080WithinOrder" value="0" id="withinOrder080">
+    </div>
+
+    <div id="trial081" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question081" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question081" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question081Response" value="0" id="response081">
+        <input type="hidden" name="question081RT" value="0" id="reactionTime081">
+        <input type="hidden" name="question081Lang" value="0" id="lang081">
+        <input type="hidden" name="question081Exemps" value="0" id="exemp081">
+        <input type="hidden" name="question081WithinOrder" value="0" id="withinOrder081">
+    </div>
+
+    <div id="trial082" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question082" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question082" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question082Response" value="0" id="response082">
+        <input type="hidden" name="question082RT" value="0" id="reactionTime082">
+        <input type="hidden" name="question082Lang" value="0" id="lang082">
+        <input type="hidden" name="question082Exemps" value="0" id="exemp082">
+        <input type="hidden" name="question082WithinOrder" value="0" id="withinOrder082">
+    </div>
+
+    <div id="trial083" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question083" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question083" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question083Response" value="0" id="response083">
+        <input type="hidden" name="question083RT" value="0" id="reactionTime083">
+        <input type="hidden" name="question083Lang" value="0" id="lang083">
+        <input type="hidden" name="question083Exemps" value="0" id="exemp083">
+        <input type="hidden" name="question083WithinOrder" value="0" id="withinOrder083">
+    </div>
+
+    <div id="trial084" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question084" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question084" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question084Response" value="0" id="response084">
+        <input type="hidden" name="question084RT" value="0" id="reactionTime084">
+        <input type="hidden" name="question084Lang" value="0" id="lang084">
+        <input type="hidden" name="question084Exemps" value="0" id="exemp084">
+        <input type="hidden" name="question084WithinOrder" value="0" id="withinOrder084">
+    </div>
+
+    <div id="trial085" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question085" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question085" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question085Response" value="0" id="response085">
+        <input type="hidden" name="question085RT" value="0" id="reactionTime085">
+        <input type="hidden" name="question085Lang" value="0" id="lang085">
+        <input type="hidden" name="question085Exemps" value="0" id="exemp085">
+        <input type="hidden" name="question085WithinOrder" value="0" id="withinOrder085">
+    </div>
+
+    <div id="trial086" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question086" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question086" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question086Response" value="0" id="response086">
+        <input type="hidden" name="question086RT" value="0" id="reactionTime086">
+        <input type="hidden" name="question086Lang" value="0" id="lang086">
+        <input type="hidden" name="question086Exemps" value="0" id="exemp086">
+        <input type="hidden" name="question086WithinOrder" value="0" id="withinOrder086">
+    </div>
+
+    <div id="trial087" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question087" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question087" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question087Response" value="0" id="response087">
+        <input type="hidden" name="question087RT" value="0" id="reactionTime087">
+        <input type="hidden" name="question087Lang" value="0" id="lang087">
+        <input type="hidden" name="question087Exemps" value="0" id="exemp087">
+        <input type="hidden" name="question087WithinOrder" value="0" id="withinOrder087">
+    </div>
+
+    <div id="trial088" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question088" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question088" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question088Response" value="0" id="response088">
+        <input type="hidden" name="question088RT" value="0" id="reactionTime088">
+        <input type="hidden" name="question088Lang" value="0" id="lang088">
+        <input type="hidden" name="question088Exemps" value="0" id="exemp088">
+        <input type="hidden" name="question088WithinOrder" value="0" id="withinOrder088">
+    </div>
+
+    <div id="trial089" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question089" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question089" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question089Response" value="0" id="response089">
+        <input type="hidden" name="question089RT" value="0" id="reactionTime089">
+        <input type="hidden" name="question089Lang" value="0" id="lang089">
+        <input type="hidden" name="question089Exemps" value="0" id="exemp089">
+        <input type="hidden" name="question089WithinOrder" value="0" id="withinOrder089">
+    </div>
+
+    <div id="trial090" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question090" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question090" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question090Response" value="0" id="response090">
+        <input type="hidden" name="question090RT" value="0" id="reactionTime090">
+        <input type="hidden" name="question090Lang" value="0" id="lang090">
+        <input type="hidden" name="question090Exemps" value="0" id="exemp090">
+        <input type="hidden" name="question090WithinOrder" value="0" id="withinOrder090">
+    </div>
+
+    <div id="trial091" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question091" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question091" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question091Response" value="0" id="response091">
+        <input type="hidden" name="question091RT" value="0" id="reactionTime091">
+        <input type="hidden" name="question091Lang" value="0" id="lang091">
+        <input type="hidden" name="question091Exemps" value="0" id="exemp091">
+        <input type="hidden" name="question091WithinOrder" value="0" id="withinOrder091">
+    </div>
+
+    <div id="trial092" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question092" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question092" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question092Response" value="0" id="response092">
+        <input type="hidden" name="question092RT" value="0" id="reactionTime092">
+        <input type="hidden" name="question092Lang" value="0" id="lang092">
+        <input type="hidden" name="question092Exemps" value="0" id="exemp092">
+        <input type="hidden" name="question092WithinOrder" value="0" id="withinOrder092">
+    </div>
+
+    <div id="trial093" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question093" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question093" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question093Response" value="0" id="response093">
+        <input type="hidden" name="question093RT" value="0" id="reactionTime093">
+        <input type="hidden" name="question093Lang" value="0" id="lang093">
+        <input type="hidden" name="question093Exemps" value="0" id="exemp093">
+        <input type="hidden" name="question093WithinOrder" value="0" id="withinOrder093">
+    </div>
+
+    <div id="trial094" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question094" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question094" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question094Response" value="0" id="response094">
+        <input type="hidden" name="question094RT" value="0" id="reactionTime094">
+        <input type="hidden" name="question094Lang" value="0" id="lang094">
+        <input type="hidden" name="question094Exemps" value="0" id="exemp094">
+        <input type="hidden" name="question094WithinOrder" value="0" id="withinOrder094">
+    </div>
+
+    <div id="trial095" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question095" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question095" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question095Response" value="0" id="response095">
+        <input type="hidden" name="question095RT" value="0" id="reactionTime095">
+        <input type="hidden" name="question095Lang" value="0" id="lang095">
+        <input type="hidden" name="question095Exemps" value="0" id="exemp095">
+        <input type="hidden" name="question095WithinOrder" value="0" id="withinOrder095">
+    </div>
+
+    <div id="trial096" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question096" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question096" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question096Response" value="0" id="response096">
+        <input type="hidden" name="question096RT" value="0" id="reactionTime096">
+        <input type="hidden" name="question096Lang" value="0" id="lang096">
+        <input type="hidden" name="question096Exemps" value="0" id="exemp096">
+        <input type="hidden" name="question096WithinOrder" value="0" id="withinOrder096">
+    </div>
+
+    <div id="trial097" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question097" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question097" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question097Response" value="0" id="response097">
+        <input type="hidden" name="question097RT" value="0" id="reactionTime097">
+        <input type="hidden" name="question097Lang" value="0" id="lang097">
+        <input type="hidden" name="question097Exemps" value="0" id="exemp097">
+        <input type="hidden" name="question097WithinOrder" value="0" id="withinOrder097">
+    </div>
+
+    <div id="trial098" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question098" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question098" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question098Response" value="0" id="response098">
+        <input type="hidden" name="question098RT" value="0" id="reactionTime098">
+        <input type="hidden" name="question098Lang" value="0" id="lang098">
+        <input type="hidden" name="question098Exemps" value="0" id="exemp098">
+        <input type="hidden" name="question098WithinOrder" value="0" id="withinOrder098">
+    </div>
+
+    <div id="trial099" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question099" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question099" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question099Response" value="0" id="response099">
+        <input type="hidden" name="question099RT" value="0" id="reactionTime099">
+        <input type="hidden" name="question099Lang" value="0" id="lang099">
+        <input type="hidden" name="question099Exemps" value="0" id="exemp099">
+        <input type="hidden" name="question099WithinOrder" value="0" id="withinOrder099">
+    </div>
+
+    <div id="trial100" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question100" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question100" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question100Response" value="0" id="response100">
+        <input type="hidden" name="question100RT" value="0" id="reactionTime100">
+        <input type="hidden" name="question100Lang" value="0" id="lang100">
+        <input type="hidden" name="question100Exemps" value="0" id="exemp100">
+        <input type="hidden" name="question100WithinOrder" value="0" id="withinOrder100">
+    </div>
+
+    <div id="trial101" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question101" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question101" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question101Response" value="0" id="response101">
+        <input type="hidden" name="question101RT" value="0" id="reactionTime101">
+        <input type="hidden" name="question101Lang" value="0" id="lang101">
+        <input type="hidden" name="question101Exemps" value="0" id="exemp101">
+        <input type="hidden" name="question101WithinOrder" value="0" id="withinOrder101">
+    </div>
+
+    <div id="trial102" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question102" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question102" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question102Response" value="0" id="response102">
+        <input type="hidden" name="question102RT" value="0" id="reactionTime102">
+        <input type="hidden" name="question102Lang" value="0" id="lang102">
+        <input type="hidden" name="question102Exemps" value="0" id="exemp102">
+        <input type="hidden" name="question102WithinOrder" value="0" id="withinOrder102">
+    </div>
+
+    <div id="trial103" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question103" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question103" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question103Response" value="0" id="response103">
+        <input type="hidden" name="question103RT" value="0" id="reactionTime103">
+        <input type="hidden" name="question103Lang" value="0" id="lang103">
+        <input type="hidden" name="question103Exemps" value="0" id="exemp103">
+        <input type="hidden" name="question103WithinOrder" value="0" id="withinOrder103">
+    </div>
+
+    <div id="trial104" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question104" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question104" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question104Response" value="0" id="response104">
+        <input type="hidden" name="question104RT" value="0" id="reactionTime104">
+        <input type="hidden" name="question104Lang" value="0" id="lang104">
+        <input type="hidden" name="question104Exemps" value="0" id="exemp104">
+        <input type="hidden" name="question104WithinOrder" value="0" id="withinOrder104">
+    </div>
+
+    <div id="trial105" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question105" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question105" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question105Response" value="0" id="response105">
+        <input type="hidden" name="question105RT" value="0" id="reactionTime105">
+        <input type="hidden" name="question105Lang" value="0" id="lang105">
+        <input type="hidden" name="question105Exemps" value="0" id="exemp105">
+        <input type="hidden" name="question105WithinOrder" value="0" id="withinOrder105">
+    </div>
+
+    <div id="trial106" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question106" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question106" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question106Response" value="0" id="response106">
+        <input type="hidden" name="question106RT" value="0" id="reactionTime106">
+        <input type="hidden" name="question106Lang" value="0" id="lang106">
+        <input type="hidden" name="question106Exemps" value="0" id="exemp106">
+        <input type="hidden" name="question106WithinOrder" value="0" id="withinOrder106">
+    </div>
+
+    <div id="trial107" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question107" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question107" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question107Response" value="0" id="response107">
+        <input type="hidden" name="question107RT" value="0" id="reactionTime107">
+        <input type="hidden" name="question107Lang" value="0" id="lang107">
+        <input type="hidden" name="question107Exemps" value="0" id="exemp107">
+        <input type="hidden" name="question107WithinOrder" value="0" id="withinOrder107">
+    </div>
+
+    <div id="trial108" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question108" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question108" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question108Response" value="0" id="response108">
+        <input type="hidden" name="question108RT" value="0" id="reactionTime108">
+        <input type="hidden" name="question108Lang" value="0" id="lang108">
+        <input type="hidden" name="question108Exemps" value="0" id="exemp108">
+        <input type="hidden" name="question108WithinOrder" value="0" id="withinOrder108">
+    </div>
+
+    <div id="trial109" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question109" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question109" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question109Response" value="0" id="response109">
+        <input type="hidden" name="question109RT" value="0" id="reactionTime109">
+        <input type="hidden" name="question109Lang" value="0" id="lang109">
+        <input type="hidden" name="question109Exemps" value="0" id="exemp109">
+        <input type="hidden" name="question109WithinOrder" value="0" id="withinOrder109">
+    </div>
+
+    <div id="trial110" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question110" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question110" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question110Response" value="0" id="response110">
+        <input type="hidden" name="question110RT" value="0" id="reactionTime110">
+        <input type="hidden" name="question110Lang" value="0" id="lang110">
+        <input type="hidden" name="question110Exemps" value="0" id="exemp110">
+        <input type="hidden" name="question110WithinOrder" value="0" id="withinOrder110">
+    </div>
+
+    <div id="trial111" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question111" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question111" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question111Response" value="0" id="response111">
+        <input type="hidden" name="question111RT" value="0" id="reactionTime111">
+        <input type="hidden" name="question111Lang" value="0" id="lang111">
+        <input type="hidden" name="question111Exemps" value="0" id="exemp111">
+        <input type="hidden" name="question111WithinOrder" value="0" id="withinOrder111">
+    </div>
+
+    <div id="trial112" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question112" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question112" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question112Response" value="0" id="response112">
+        <input type="hidden" name="question112RT" value="0" id="reactionTime112">
+        <input type="hidden" name="question112Lang" value="0" id="lang112">
+        <input type="hidden" name="question112Exemps" value="0" id="exemp112">
+        <input type="hidden" name="question112WithinOrder" value="0" id="withinOrder112">
+    </div>
+
+    <div id="trial113" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question113" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question113" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question113Response" value="0" id="response113">
+        <input type="hidden" name="question113RT" value="0" id="reactionTime113">
+        <input type="hidden" name="question113Lang" value="0" id="lang113">
+        <input type="hidden" name="question113Exemps" value="0" id="exemp113">
+        <input type="hidden" name="question113WithinOrder" value="0" id="withinOrder113">
+    </div>
+
+    <div id="trial114" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question114" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question114" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question114Response" value="0" id="response114">
+        <input type="hidden" name="question114RT" value="0" id="reactionTime114">
+        <input type="hidden" name="question114Lang" value="0" id="lang114">
+        <input type="hidden" name="question114Exemps" value="0" id="exemp114">
+        <input type="hidden" name="question114WithinOrder" value="0" id="withinOrder114">
+    </div>
+
+    <div id="trial115" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question115" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question115" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question115Response" value="0" id="response115">
+        <input type="hidden" name="question115RT" value="0" id="reactionTime115">
+        <input type="hidden" name="question115Lang" value="0" id="lang115">
+        <input type="hidden" name="question115Exemps" value="0" id="exemp115">
+        <input type="hidden" name="question115WithinOrder" value="0" id="withinOrder115">
+    </div>
+
+    <div id="trial116" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question116" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question116" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question116Response" value="0" id="response116">
+        <input type="hidden" name="question116RT" value="0" id="reactionTime116">
+        <input type="hidden" name="question116Lang" value="0" id="lang116">
+        <input type="hidden" name="question116Exemps" value="0" id="exemp116">
+        <input type="hidden" name="question116WithinOrder" value="0" id="withinOrder116">
+    </div>
+
+    <div id="trial117" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question117" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question117" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question117Response" value="0" id="response117">
+        <input type="hidden" name="question117RT" value="0" id="reactionTime117">
+        <input type="hidden" name="question117Lang" value="0" id="lang117">
+        <input type="hidden" name="question117Exemps" value="0" id="exemp117">
+        <input type="hidden" name="question117WithinOrder" value="0" id="withinOrder117">
+    </div>
+
+    <div id="trial118" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question118" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question118" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question118Response" value="0" id="response118">
+        <input type="hidden" name="question118RT" value="0" id="reactionTime118">
+        <input type="hidden" name="question118Lang" value="0" id="lang118">
+        <input type="hidden" name="question118Exemps" value="0" id="exemp118">
+        <input type="hidden" name="question118WithinOrder" value="0" id="withinOrder118">
+    </div>
+
+    <div id="trial119" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question119" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question119" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question119Response" value="0" id="response119">
+        <input type="hidden" name="question119RT" value="0" id="reactionTime119">
+        <input type="hidden" name="question119Lang" value="0" id="lang119">
+        <input type="hidden" name="question119Exemps" value="0" id="exemp119">
+        <input type="hidden" name="question119WithinOrder" value="0" id="withinOrder119">
+    </div>
+
+    <div id="trial120" class="trialDiv">
+        <p class="trialQ">Which example was composed of <b>shorter</b> segments?</p>
+        <div class="responseButtons">
+            <input type="button" class="rb1" name="question120" value="Example 1" onclick="logResponse(this)">
+            <input type="button" class="rb2" name="question120" value="Example 2" onclick="logResponse(this)">
+        </div>
+        <input type="hidden" name="question120Response" value="0" id="response120">
+        <input type="hidden" name="question120RT" value="0" id="reactionTime120">
+        <input type="hidden" name="question120Lang" value="0" id="lang120">
+        <input type="hidden" name="question120Exemps" value="0" id="exemp120">
+        <input type="hidden" name="question120WithinOrder" value="0" id="withinOrder120">
+    </div>
+</div>
+
+<div id="finalButton">
+    <input type="submit" value="Submit" />
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"> </script>
+<script type="text/javascript" src="/Users/jacksonlee/Documents/Work/MTurk/mturk_SQ_2sec/trialOrderings.js"></script>
+<script>
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|| Legacy - Handle Beginning ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    var HC_key = [];
+    var HC_version = [];
+
+    for(i = 0; i < 6; i++){
+        jj = Math.floor(Math.random() * 3) + 1 ;
+        HC_key[i] = jj.toString();
+    }
+
+    for(i = 0; i < 6; i++){
+        jj = Math.floor(Math.random() * 2) + 1 ;
+        HC_version[i] = jj.toString();
+    }
+
+    var HC_corr = 0;
+
+    var n_trials_total = 200;
+
+    var PF =[];
+    var PF_key =[];
+    var RepNonRep_pre = [];
+
+    for (i = 0; i < n_trials_total; i++) {
+        var rnr = ((i+3)%2)+1;
+        RepNonRep_pre[i] = rnr.toString();
+
+        var pft = Math.floor(Math.random() * 2) + 1 ;
+        PF_key[i] = pft.toString();
+        if (pft==1){
+            PF[i] = "P";
+        }
+        else {
+            PF[i] = "F";
+        }
+    }
+    var ind = -1;
+
+    function ReturnRadio(HC){
+        ind++;
+        var radios = document.getElementsByName(HC);
+        for (var i = 0, length = radios.length; i < length; i++) {
+            if (radios[i].checked) {
+                if (radios[i].value==HC_key[ind]){HC_corr++}
+                break;
+            }
+        }
+    }
+
+    function stim_play(stim) {
+        var clip = document.getElementById(stim);
+        clip.play();
+    }
+
+    // Prevent multiple audio streams from playing on the SQ Table page
+    window.addEventListener("play", function(evt)
+    {
+        if(window.$_currentlyPlaying && window.$_currentlyPlaying != evt.target)
+        {
+            window.$_currentlyPlaying.pause();
+        }
+        window.$_currentlyPlaying = evt.target;
+    }, true);
+
+    function clickDisable(button)
+    {
+        document.getElementById(button).disabled=true;
+    }
+
+    var current = 1; //current page
+    var moved = []; //pages moved by the rand
+    var movedto = [];
+
+    //takes randomization into account
+    function effectivePage(pagenum) {
+        var index = moved.indexOf(pagenum);
+        if(index == -1) {
+            return pagenum;
+        }else{
+            return movedto[index];
+        }
+    }
+
+    var numberText = []; //stores divs to be updated on page change
+    var pntexts = []; //texts in them
+
+    function updatePageNumbers() {
+        for(var i = 0; i < numberText.length; i++) {
+            numberText[i].innerHTML = pntexts[i][0] + current + pntexts[i][1];
+        }
+    }
+
+    //make one vanish and the other appear
+    function swap(vanish, appear) {
+        document.getElementById(vanish).style.display = "none";
+        //document.getElementById(appear).style.display = "inline";
+        document.getElementById(appear).style.display = "";
+        updatePageNumbers();
+    }
+
+    //go to the next page
+    function next() {
+        current++;
+        swap(effectivePage(current - 1), effectivePage(current));
+    }
+
+    function endHIT() {
+        current++;
+        swap(effectivePage(current - 1), 19);
+    }
+
+    //shuffles the array
+    Array.prototype.shuffle = function () {
+        for (var i = this.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var tmp = this[i];
+            this[i] = this[j];
+            this[j] = tmp;
+        }
+
+        return this;
+    };
+
+    var HC_but_1 = "antiphase_HC_".concat(HC_key[0],"_",HC_version[0]);
+    var HC_but_2 = "antiphase_HC_".concat(HC_key[1],"_",HC_version[1]);
+    var HC_but_3 = "antiphase_HC_".concat(HC_key[2],"_",HC_version[2]);
+    var HC_but_4 = "antiphase_HC_".concat(HC_key[3],"_",HC_version[3]);
+    var HC_but_5 = "antiphase_HC_".concat(HC_key[4],"_",HC_version[4]);
+    var HC_but_6 = "antiphase_HC_".concat(HC_key[5],"_",HC_version[5]);
+
+
+    function endPreScreen() {
+        $('.wrapper').hide();
+        //$('#startExpPage').show();
+        $('#explainSQs').show();
+    }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|| Practice Trials ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+    function startPractice () {
+        // Navigate from Quilts Table page to th Practice Instructions
+        $('#explainSQs').hide();
+        $('#practiceTrialsPage').show();
+    }
+
+    function showFirstPractice() {
+        showPracticeTrial();
+        //hide current page
+        $('#practiceTrialsPage').hide();
+        $('#practiceTrialsPage2').hide();
+        $('#practiceTrialsPage3').hide();
+    }
+
+    // Stimuli files to be used in the practice section
+    // First four are comparisons of extremes (30ms vs 1920ms)
+    var practice1 = [("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Eng_30ms_ex" + getRandomInt(1, 100) + ".wav"), ("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Eng_1920ms_ex" + getRandomInt(1, 100) + ".wav")];
+    var practice2 = [("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Kor_1920ms_ex" + getRandomInt(1, 100) + ".wav"), ("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Eng_30ms_ex" + getRandomInt(1, 100) + ".wav")];
+    var practice3 = [("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Eng_1920ms_ex" + getRandomInt(1, 100) + ".wav"), ("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Kor_30ms_ex" + getRandomInt(1, 100) + ".wav")];
+    var practice4 = [("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Kor_30ms_ex" + getRandomInt(1, 100) + ".wav"), ("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Kor_1920ms_ex" + getRandomInt(1, 100) + ".wav")];
+    // Second half are comparisons at the edges (30v60ms & 960v1920ms)
+    var practice5 = [("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Eng_30ms_ex" + getRandomInt(1, 100) + ".wav"), ("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Eng_60ms_ex" + getRandomInt(1, 100) + ".wav")];
+    var practice6 = [("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Kor_1920ms_ex" + getRandomInt(1, 100) + ".wav"), ("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Eng_960ms_ex" + getRandomInt(1, 100) + ".wav")];
+    var practice7 = [("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Eng_60ms_ex" + getRandomInt(1, 100) + ".wav"), ("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Kor_30ms_ex" + getRandomInt(1, 100) + ".wav")];
+    var practice8 = [("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Kor_960ms_ex" + getRandomInt(1, 100) + ".wav"), ("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_Kor_1920ms_ex" + getRandomInt(1, 100) + ".wav")];
+
+    var practiceFiles = [practice1,practice2,practice3,practice4,practice5,practice6,practice7,practice8];
+
+    var practiceCount = 0;
+    var passedPractInstruct2 = 0;
+
+    var practice2correct = 0; // Count correct responses in second half of practice section
+
+    // Handle the presentation of practice trials
+    function showPracticeTrial() {
+
+        // Hide any feedback display
+        $('#correctFeed').hide();
+        $('#incorrectFeed').hide();
+
+        if (practiceCount === 4 && passedPractInstruct2 === 0) { // Participant has complete first 4 practice trials - navigate to second practice instruct page
+            $('.progFrame').hide();
+            $('#practiceTrialsPage2').show();
+            passedPractInstruct2 = 1;   // toggle to not show instructions again
+        } else if (practiceCount >= 8) {    // Participant has completed all 8 practice trials
+            $('.progFrame').hide();
+            if (practice2correct >= 3) {    // Participant correct count meets the 75% cutoff threshold
+                $('#startExpPage').show();
+            } else {                        // Participant does not meet threshold - show additional instruction page, reset counters for second half of practice stage
+                $('#practiceTrialsPage3').show();
+                practice2correct = 0;
+                practiceCount = 4;
+            }
+            // Present the practice trial
+        } else {
+
+            // Get the stim files and load sounds
+            fileName = practiceFiles[practiceCount];
+            console.log(fileName);
+            var s = new Array(2);
+            s = loadSound(fileName);
+
+            $('#brokenButton').show();
+
+            setTimeout(function () {
+
+                // Delay stim 2 start for 2.5s
+                setTimeout(function () {
+                    s[1].play();
+                    $("#rb2_fake").css("background","LightYellow");
+                    // Pause stim 2 & enable response buttons after 1920ms
+                    setTimeout(function () {
+                        s[1].pause();
+                        $("#rb2_fake").css("background","");
+                        $('#brokenButton').hide();
+                        $('#practice' + (practiceCount + 1)).show();
+                    }, 1920);
+                }, 2500);
+
+                // Start the first sound & pause after 1920ms
+                s[0].play();
+                $("#rb1_fake").css("background","LightYellow");
+                setTimeout(function () {
+                    s[0].pause();
+                    $("#rb1_fake").css("background","");
+                }, 1920);
+
+            }, 500);
+        }
+    }
+
+    function practiceFeedback(objButton) {
+        // Function determines the subject answer selection for a given practice trial, and uses switch case to
+        // determine correct/incorrect feedback
+
+        // if the subject is in the second half of the practice block (determined by the practiceCount), the number
+        // of correct responses is increased upon correct response in order to compare performance against threshold
+
+        var response = objButton.value;
+        response = response.slice(-1);
+        response = parseInt(response);
+        console.log(response);
+        $('#practice' + (practiceCount + 1)).hide();
+        console.log(practiceCount);
+
+        switch (practiceCount) {
+            case 0:
+            case 3:
+                if (response === 1) { // correct response
+                    console.log('Correct!');
+                    $('#correctFeed').show();
+                } else { // incorrect
+                    console.log('Incorrect!');
+                    $('#incorrectFeed').show();
+                }
+                break;
+            case 1:
+            case 2:
+                if (response === 2) { // correct response
+                    console.log('Correct!');
+                    $('#correctFeed').show();
+                } else { // incorrect
+                    console.log('Incorrect!');
+                    $('#incorrectFeed').show();
+                }
+                break;
+            // Second half of practice section
+            // Correct-count logged
+            case 4:
+            case 7:
+                if (response === 1) { // correct response
+                    console.log('Correct!');
+                    $('#correctFeed').show();
+                    practice2correct++;
+                } else { // incorrect
+                    console.log('Incorrect!');
+                    $('#incorrectFeed').show();
+                }
+                break;
+            case 5:
+            case 6:
+                if (response === 2) { // correct response
+                    console.log('Correct!');
+                    $('#correctFeed').show();
+                    practice2correct++;
+                } else { // incorrect
+                    console.log('Incorrect!');
+                    $('#incorrectFeed').show();
+                }
+                break;
+        }
+        practiceCount++;
+    }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|| Initialize Trial Ordering ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    var curTrial = 0;
+    var nTrials = 120;
+    var startTrialTime;
+
+    var numPerCond = nTrials/6;
+
+    var lengthConds = [["30","60"],["60","120"],["120","240"],["240","480"],["480","960"],["960","1920"]];
+    var langConds = [["Eng","Eng"],["Eng","Kor"],["Kor","Kor"],["Kor","Eng"]];
+
+    /*
+    var cond1 = new Array(numPerCond).fill(1);
+    var cond2 = new Array(numPerCond).fill(2);
+    var cond3 = new Array(numPerCond).fill(3);
+    var cond4 = new Array(numPerCond).fill(4);
+    var cond5 = new Array(numPerCond).fill(5);
+    var cond6 = new Array(numPerCond).fill(6);
+
+    var trialOrder = shuffle(cond1.concat(cond2).concat(cond3).concat(cond4).concat(cond5).concat(cond6));
+    */
+
+    var withinOrder = createOrdering();
+
+    var trialOrderPosition = withinOrder.trialOrderPosition;
+    var trialOrderLang = withinOrder.trialOrderLang;
+    var trialExemplar = withinOrder.trialExemplar;
+
+    var condOneCount = 0;
+    var condTwoCount = 0;
+    var condThreeCount = 0;
+    var condFourCount = 0;
+    var condFiveCount = 0;
+    var condSixCount = 0;
+    var fileName = [];
+
+    // Do some shuffling to create the trial ordering
+    function createOrdering() {
+
+        var trialOrderWithin = [[],[],[],[],[],[]];
+        var trialOrderPosition = [[],[],[],[],[],[]];
+        var trialOrderLang = [[],[],[],[],[],[]];
+        var trialExemplar = [[],[],[],[],[],[],[]];
+
+        // Loop for each segLength condition
+        for (i = 0; i < 6; i++) {
+
+            trialOrderWithin[i] = randperm(numPerCond);
+
+            for (j=0; j<numPerCond; j++) {
+
+                if (trialOrderWithin[i][j] < (numPerCond/2)) {
+                    trialOrderPosition[i][j] = 1; // Shorter segment first
+                } else {
+                    trialOrderPosition[i][j] = 2; // Longer segment first
+                }
+
+                if (trialOrderWithin[i][j] >= 0 && trialOrderWithin[i][j] <= 4) {
+                    trialOrderLang[i][j] = 1; // English-English
+                } else if (trialOrderWithin[i][j] >= 5 && trialOrderWithin[i][j] <= 9) {
+                    trialOrderLang[i][j] = 2; // English-Korean
+                } else if (trialOrderWithin[i][j] >= 10 && trialOrderWithin[i][j] <= 14) {
+                    trialOrderLang[i][j] = 3; // Korean-Korean
+                } else {
+                    trialOrderLang[i][j] = 4; // Korean-English
+                }
+
+            }
+
+        }
+
+        var tempArray = [];
+        var index = [];
+
+        for (i = 0; i < 7; i++) {
+            tempArray = randperm((2*numPerCond)+1);
+            index = tempArray.indexOf(0); // indexOf function may not work with IE?
+            if (index > -1) {
+                tempArray.splice(index,1);
+            }
+            trialExemplar[i] = tempArray;
+
+            tempArray = [];
+            index = [];
+        }
+
+        return {
+            trialOrderPosition: trialOrderPosition,
+            trialOrderLang: trialOrderLang,
+            trialExemplar: trialExemplar
+        };
+
+    }
+
+    function trialAssembler(curTrial) {
+        // Function takes the current trial number as index to shuffled trial vectors, and uses this to construct the
+        // file names to be pulled from server
+
+        var lengths = [];
+        var lang = [];
+        var exemps = [];
+
+        switch (trialOrder[curTrial]) {
+            // Switch condition based on the code in vector "trialOrder", which contains integer 1-6, and codes for the
+            // length comparison condition (30v60ms, 60v120ms,..., 960v1920ms)
+            case 1:
+                lengths = lengthConds[0];
+                // length order defaults to short first
+                if (trialOrderPosition[0][condOneCount] === 2) {
+                    // length order reversed
+                    lengths.reverse();
+                }
+                lang = langConds[(trialOrderLang[0][condOneCount])-1];
+                // language determined from language vector
+                exemps = getExemps(lengths);
+                // exemplars retrieved from getExemps function
+                condOneCount++;
+                break;
+            case 2:
+                lengths = lengthConds[1];
+                if (trialOrderPosition[1][condTwoCount] === 2) {
+                    lengths.reverse(); // Set longer to first
+                }
+                lang = langConds[(trialOrderLang[1][condTwoCount])-1];
+                exemps = getExemps(lengths);
+                condTwoCount++;
+                break;
+            case 3:
+                lengths = lengthConds[2];
+                if (trialOrderPosition[2][condThreeCount] === 2) {
+                    lengths.reverse(); // Set longer to first
+                }
+                lang = langConds[(trialOrderLang[2][condThreeCount])-1];
+                exemps = getExemps(lengths);
+                condThreeCount++;
+                break;
+            case 4:
+                lengths = lengthConds[3];
+                if (trialOrderPosition[3][condFourCount] === 2) {
+                    lengths.reverse(); // Set longer to first
+                }
+                lang = langConds[(trialOrderLang[3][condFourCount])-1];
+                exemps = getExemps(lengths);
+                condFourCount++;
+                break;
+            case 5:
+                lengths = lengthConds[4];
+                if (trialOrderPosition[4][condFiveCount] === 2) {
+                    lengths.reverse(); // Set longer to first
+                }
+                lang = langConds[(trialOrderLang[4][condFiveCount])-1];
+                exemps = getExemps(lengths);
+                condFiveCount++;
+                break;
+            case 6:
+                lengths = lengthConds[5];
+                if (trialOrderPosition[5][condSixCount] === 2) {
+                    lengths.reverse(); // Set longer to first
+                }
+                lang = langConds[(trialOrderLang[5][condSixCount])-1];
+                exemps = getExemps(lengths);
+                condSixCount++;
+        }
+
+        // Save trial information to CSV
+        if ((curTrial + 1) < 10) {
+            $('#lang00' + (curTrial + 1)).val(lang);
+            $('#exemp00' + (curTrial + 1)).val(exemps);
+            $('#withinOrder00' + (curTrial + 1)).val(lengths);
+        } else if ((curTrial + 1) < 100) {
+            $('#lang0' + (curTrial + 1)).val(lang);
+            $('#exemp0' + (curTrial + 1)).val(exemps);
+            $('#withinOrder0' + (curTrial + 1)).val(lengths);
+        } else {
+            $('#lang' + (curTrial + 1)).val(lang);
+            $('#exemp' + (curTrial + 1)).val(exemps);
+            $('#withinOrder' + (curTrial + 1)).val(lengths);
+        }
+
+        return fileName = [("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_" + lang[0] +"_"+ lengths[0] +"ms_ex"+ exemps[0] +".wav"), ("http://web.duke.edu/mind/overathlab/Experiments/SQ_2s/Stimuli/S2_" + lang[1] +"_"+ lengths[1] +"ms_ex"+ exemps[1] +".wav")];
+        // return the vector with the stim files
+    }
+
+    var case30count = 0;
+    var case60count = 0;
+    var case120count = 0;
+    var case240count = 0;
+    var case480count = 0;
+    var case960count = 0;
+    var case1920count = 0;
+
+    function getExemps(lengths) {
+        // Function takes the segment lengths being used in the trial and draws the next exemplar which corresponds to
+        // that segment length
+
+        var ex = [];
+
+        for (i=0; i < 2; i++) {
+            switch (lengths[i]) {
+                case "30":
+                    ex[i] = trialExemplar[0][case30count];
+                    case30count++;
+                    break;
+                case "60":
+                    ex[i] = trialExemplar[1][case60count];
+                    case60count++;
+                    break;
+                case "120":
+                    ex[i] = trialExemplar[2][case120count];
+                    case120count++;
+                    break;
+                case "240":
+                    ex[i] = trialExemplar[3][case240count];
+                    case240count++;
+                    break;
+                case "480":
+                    ex[i] = trialExemplar[4][case480count];
+                    case480count++;
+                    break;
+                case "960":
+                    ex[i] = trialExemplar[5][case960count];
+                    case960count++;
+                    break;
+                case "1920":
+                    ex[i] = trialExemplar[6][case1920count];
+                    case1920count++;
+            }
+        }
+        return ex;
+    }
+
+    function logResponse(objButton) {
+        // Function removes the 'Example_' text from the response button face, and stores the remaining 1 or 2 in the
+        //saved CSV
+
+        var response = objButton.value;
+        response = response.slice(-1);
+
+        if ((curTrial + 1) < 10) {
+            $('#response00' + (curTrial + 1)).val(response);
+        } else if ((curTrial + 1) < 100) {
+            $('#response0' + (curTrial + 1)).val(response);
+        } else {
+            $('#response' + (curTrial + 1)).val(response);
+        }
+
+    }
+
+    function buttonClicked() {
+        // Function handles the response button clicks during real trials [sets new reaction time timer, logs previous
+        // trial time, calls function to initiate next trial presentation]
+
+        var curTime = new Date();
+        var rt = curTime - startTrialTime;
+
+        move(); // animate the progress bar
+
+        if ((curTrial + 1) < 10) {
+            $('#reactionTime00' + (curTrial + 1)).val(rt);
+            $('#trial00' + (curTrial + 1)).hide();
+        } else if ((curTrial + 1) < 100) {
+            $('#reactionTime0' + (curTrial + 1)).val(rt);
+            $('#trial0' + (curTrial + 1)).hide();
+        } else {
+            $('#reactionTime' + (curTrial + 1)).val(rt);
+            $('#trial' + (curTrial + 1)).hide();
+        }
+
+        curTrial++;
+        if (curTrial <= nTrials-1) {
+            console.log(curTrial);
+            showTrial(curTrial);
+            startTrialTime = new Date();
+        } else {
+            console.log('done!');
+            //$('#submitButton').show();
+            $('#finalButton').show();
+        }
+    }
+
+    function showTrial(whichTrial) {
+        // Function to control stimuli presentation
+
+        // Get the stim files and load sounds
+        fileName = trialAssembler(curTrial);
+        console.log(fileName);
+        var s = new Array(2);
+        s = loadSound(fileName);
+
+        $('#brokenButton').show(); // display non-clickable response buttons
+
+        setTimeout(function() {
+            // Set 500ms delay to start the stimuli
+
+            // Delay stim 2 start for 2.5s
+            setTimeout(function () {
+                s[1].play();
+                $("#rb2_fake").css("background","LightYellow");
+                // Pause stim 2 & enable response buttons after 1920ms
+                setTimeout(function () {
+                    s[1].pause();
+                    $("#rb2_fake").css("background","");
+                    $('#brokenButton').hide();
+                    if ((whichTrial+1) < 10) {
+                        $('#trial00' + (whichTrial + 1)).show();
+                    } else if ((whichTrial+1) < 100) {
+                        $('#trial0' + (whichTrial + 1)).show();
+                    } else {
+                        $('#trial' + (whichTrial + 1)).show();
+                    }
+                }, 1920);
+            }, 2500);
+
+            // Start the first sound & pause after 1920ms
+            s[0].play();
+            $("#rb1_fake").css("background","LightYellow");
+            setTimeout(function () {
+                s[0].pause();
+                $("#rb1_fake").css("background","");
+            },1920);
+
+        },500);
+    }
+
+    function loadSound(fileName) {
+
+        var s = new Array(2);
+
+        for (sCount = 0; sCount < 2; sCount++) {
+            s[sCount] = new Audio(fileName[sCount]);
+            s[sCount].oncanplaythrough = loadSound;
+        }
+        return s
+    }
+
+    function showFirstTrial() {
+        showTrial(curTrial);
+        startTrialTime = new Date();
+        $('#instructions').hide();
+        $('#startExperimentButton').hide();
+        $('.progFrame').show();
+    }
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|| Progress Bar ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    var barWidth = 0;
+    var targetWidth = 0;
+
+    function move() {
+
+        targetWidth = ((curTrial+1)/nTrials)*100;
+
+
+        var elem = document.getElementById("myBar");
+        var id = setInterval(frame, 10);
+
+        function frame() {
+            if (barWidth >= targetWidth) {
+                clearInterval(id);
+            } else {
+                //barWidth++;
+                barWidth = barWidth + 0.1;
+                elem.style.width = barWidth + '%';
+            }
+        }
+    }
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|| Randomization Functions ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    function shuffle(o){
+        for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+    }
+
+    function randperm(maxValue){
+        // first generate number sequence
+        var permArray = new Array(maxValue);
+        for(var i = 0; i < maxValue; i++){
+            permArray[i] = i;
+        }
+        // draw out of the number sequence
+        for (var i = (maxValue - 1); i >= 0; --i){
+            var randPos = Math.round(i * Math.random());
+            var tmpStore = permArray[i];
+            permArray[i] = permArray[randPos];
+            permArray[randPos] = tmpStore;
+        }
+        return permArray;
+    }
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|| Wait for User Input ||~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+     // Practice Trial Control
+    $('#startPractice').click(showFirstPractice);
+    $('#startPractice2').click(showFirstPractice);
+    $('#startPractice3').click(showFirstPractice);
+
+    // Real Trial Control
+    $('#startExperiment').click(showFirstTrial);
+    $('.rb1').click(buttonClicked);
+    $('.rb2').click(buttonClicked);
+</script>
